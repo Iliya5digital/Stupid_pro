@@ -1,0 +1,44 @@
+#include <string>
+#include <iostream>
+using namespace std;
+string to_binary_string(unsigned int n)
+{
+    string buff;
+    buff.reserve(numeric_limits<unsigned long long>::digits);
+    do
+    {
+        buff += char('0' + n % 2);
+        n /= 2;
+    } while (n > 0);
+    return string(buff.crbegin(), buff.crend());
+}
+int main()
+{
+    int n;
+    long long age, counter=0, number_of_candles=999, total, arr[100];
+    string ageStr;
+    cin >>n;
+    for (int i=0; i<n; i++) cin >>arr[i];
+    for (int i=0; i<n; i++)
+    {
+        ageStr= to_binary_string(arr[i]);
+        if (i==0)
+        {
+            number_of_candles=ageStr.size();
+            total=number_of_candles;
+        }
+        else
+        {
+            for (int k=number_of_candles; k<ageStr.size(); k++)
+            {
+                number_of_candles++;
+                total++;
+            }
+
+        }
+        for (int j=0; j<ageStr.size(); j++) if (ageStr[j]=='1') counter++; //считаем количество единиц
+        number_of_candles-=counter; //считаем, сколько осталось после первого торта
+        counter=0;
+    }
+    cout <<total;
+}

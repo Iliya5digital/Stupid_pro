@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main(){
+int x, y, z, t;
+cin >>x >>y >>z >>t;
+int arr[4];
+arr[0]=x; //a+b
+arr[1]=y; //b+c
+arr[2]=z; //a+c
+arr[3]=t; //a+b+c
+int a, b, c;
+int count=1;
+for (int i=0; i<4; i++){
+    for (int j=0; j<6; j++){
+        b=arr[3]-arr[2];
+        a=arr[0]-b;
+        c=arr[2]-a;
+        if ((a+b+c==arr[3])  && (a+b==arr[0]) && (b+c==arr[1]) && (a+c==arr[2])) break;
+        else {
+            if (count%4==3) count+=2;
+            swap (arr[count%4],arr[(count+1)%4]);
+        }
+        count++;
+    }
+    count=1;
+    swap (arr[0], arr[1]);
+}
+cout <<a <<" " <<b << " " <<c;
+    return 0;
+}

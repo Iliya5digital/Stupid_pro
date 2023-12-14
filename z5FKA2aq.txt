@@ -1,0 +1,21 @@
+p1, p2, q1, q2 = 3, 87, 50, 72
+P = [i / 10 for i in range(p1 * 10, p2 * 10 + 1)]
+Q = [i / 10 for i in range(q1 * 10, q2 * 10 + 1)]
+
+
+def f(A, x):
+    return ((x in P) and not((x in A) == (x in Q)) or not((x in Q)or(x in A)))
+
+
+# дальше пишем в range() значение меньше минимального, в нашем случае самое маленькое p1, берем 1 * 10
+# и значение больше максимального - q2, берем 20 * 10 + 1
+
+# если ищем наименьшее значение просто A = set()
+A = set([i / 10 for i in range(10, 1001)])
+
+for x in [i / 10 for i in range(10, 1001)]:
+    if not (f(A, x)):
+        # если ищем наименьшее значение просто A.add(x)
+        A.remove(x)
+
+print(sorted(A))

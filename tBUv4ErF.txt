@@ -1,0 +1,12 @@
+s = 'ДЕРВО'
+c = 0
+for i in s:
+    for j in s:
+        for k in s:
+            for q in s:
+                for w in s:
+                    for r in s:
+                        word = i + j + k + q + w + r
+                        if word[0] <= word[2] <= word[4] and word[1] <= word[3] <= word[5]:
+                            c += 1
+print(c)

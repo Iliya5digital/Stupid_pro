@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+long long a, b, c;
+cin >>a >>b >>c;
+long long length;
+length=abs(a-b); // расстояние от дома до школы
+if (length<c){
+if (abs(c-length)<length) cout <<abs(c-length); //c-b - расстояние от телепорта до школы
+else cout <<length;
+}
+else{
+    if (length>c) cout <<length-c; //расстояние равно разности от дома до школы и разности телепорта
+else{
+     if (length==c) cout <<0;
+}}
+return 0;
+}

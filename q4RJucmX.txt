@@ -1,0 +1,2472 @@
+# print('e g k z')
+# for e in range(2):
+#     for g in range(2):
+#         for k in range(2):
+#             for z in range(2):
+#                 f = ((not e) and g) or (k <= z)
+#                 if not f:
+#                     print(e, g, k, z)
+
+# def f(n):
+#     str_n = str(n)
+#     s1 = str(int(str_n[0]) * int(str_n[1]))
+#     s2 = str(int(str_n[1]) * int(str_n[2]))
+#     res = s1 + s2
+#     return int(res)
+#
+#
+# for i in range(100, 1000):
+#     print(i, f(i))
+
+# import turtle as t
+#
+# t.tracer(0, 0)
+# t.left(90)
+# k = 30
+#
+# t.forward(10 * k)
+# t.right(45)
+# for i in range(9):
+#     t.forward(5 * k)
+#     t.right(90)
+#
+# t.up()
+#
+# for x in range(-15, 15):
+#     for y in range(-15, 15):
+#         t.goto(x * k, y * k)
+#         t.dot(3)
+#
+# t.update()
+# t.mainloop()
+
+# s = 57 * "2"
+# while "22222" in s or "5555" in s:
+#     if "22222" in s:
+#         s = s.replace("22222", "55", 1)
+#     else:
+#         s = s.replace("5555", "2", 1)
+# print(s)
+
+# n = 1024 ** 29 + 64 ** 47 + 3 * 512 - 32
+# a = []
+# while n > 0:
+#     a.append(n % 4)
+#     n //= 4
+# print(sum(a))
+# print(a)
+
+# ((𝑦>𝐴)∨(𝑦≤150))∧(¬(𝑥2≥𝐴)∨¬(𝑥≤11))
+# for A in range(-100, 1000):
+#     flag = 1
+#     for x in range(0, 100):
+#         for y in range(0, 100):
+#             f = ((y > A) or (y <= 150)) and (not((x ** 2) >= A) or not(x <= 11))
+#             if not f:
+#                 flag = 0
+#     if flag:
+#         print(A)
+
+# def f(n):
+#     if n <= 1:
+#         return 1
+#     elif n > 1 and n % 3 == 0:
+#         return f(n - 1) + f(n - 3)
+#     else:
+#         return f(n - 2) + 3 * n
+#
+# print(f(65))
+
+# a = []
+# with open('Задание 17.txt') as file:
+#     for line in file:
+#         a.append(int(line))
+# c = 0
+# max_res = -10 ** 10
+# for i in range(len(a) - 1):
+#     if (a[i] + a[i + 1]) % 6 != 0 and (abs(a[i] * a[i + 1]) < 10000):
+#         c += 1
+#         if a[i] + a[i + 1] > max_res:
+#             max_res = a[i] + a[i + 1]
+# print(c, max_res)
+
+# def win(s):
+#     return s >= 29
+#
+#
+# def first(s):
+#     return (win(s + 3) or win(s * 2)) and (not (win(s)))
+#
+#
+# def second(s):
+#     return first(s + 3) and first(s * 2) and not (win(s))
+#
+#
+# def third(s):
+#     return (second(s + 3) or second(s * 2)) and (not (win(s)))
+#
+#
+# def fourth(s):
+#     return (third(s + 3) or first(s + 3)) and (third(s * 2) or first(s * 2)) and not (win(s))
+#
+#
+# for i in range(1, 29):
+#     if third(i) and not (second(i)):
+#         print(i, end=' ')
+#
+# print('\n')
+# for i in range(1, 29):
+#     if fourth(i) and not(second(i)):
+#         print(i, end=' ')
+
+# a = [0]
+# for line in open('maam.txt').readlines():
+#     number, time, add = line.split('\t')
+#     a.append(0)
+#     for j in add.split(';'):
+#         a[int(number)] = max(a[int(number)], a[int(j)])
+#     a[int(number)] += int(time)
+# print(max(a))
+
+# def f(x, y):
+#     if x > y:
+#         return 0
+#     elif x == y:
+#         return 1
+#     else:
+#         return f(x + 1, y) + f(x + 2, y)
+#
+#
+# print(f(3, 8) * f(8, 13))
+
+# def f(n):
+#     str_n = str(n)
+#     s1 = (int(str_n[0]) * int(str_n[1]))
+#     s2 = (int(str_n[1]) * int(str_n[2]))
+#     return int(str(min(s1, s2)) + str(max(s1, s2)))
+#
+#
+# for i in range(100, 1000):
+#     if f(i) == 832:
+#         print(i)
+
+# n = 1024 ** 29 - 64 ** 47 + 3 * 512 - 32
+# a = []
+# while n > 0:
+#     a.append(n % 4)
+#     n //= 4
+# print(sum(a))
+
+# def f(n):
+#     bin_n = bin(n).removeprefix('0b')
+#     s = ""
+#     for i in str(bin_n):
+#         if i == "1":
+#             s += "01"
+#         elif i == "0":
+#             s += "10"
+#     return s
+#
+#
+# for i in range(1, 100):
+#     print(int(f(i), 2), "--", f(i), i)
+
+
+# F = ¬((w ∨ ¬ y) ∧ x) ∨ (y ≡ z)
+# print('x y z w')
+# for x in range(2):
+#     for y in range(2):
+#         for z in range(2):
+#             for w in range(2):
+#                 f = (not(((w or (not y))) and x)) or (y == z)
+#                 if not f:
+#                     print(x, y, z, w)
+
+# def f(n):
+#     str_n = bin(n).removeprefix('0b')
+#     summax = 0
+#     for i in str_n:
+#         summax += int(i)
+#     if summax % 2 == 0:
+#
+import math
+import turtle as t
+
+# Повтори 2 [Вперёд 10 Направо 90 Вперёд 20 Направо 90]
+#
+# Поднять хвост
+#
+# Вперёд 3
+#
+# Направо 90
+#
+# Вперёд 7
+#
+# Налево 90
+#
+# Опустить хвост
+#
+# Повтори 2 [Вперёд 70 Направо 90 Вперёд 90 Направо 90].
+
+# t.tracer(0, 0)
+# t.left(0)
+# k = 15
+#
+# for i in range(2):
+#     t.forward(10 * k)
+#     t.right(90)
+#     t.forward(20 * k)
+#     t.right(90)
+#
+# t.up()
+# t.forward(3 * k)
+# t.right(90)
+# t.forward(7 * k)
+# t.left(90)
+# t.down()
+# for i in range(2):
+#     t.forward(70)
+#     t.right(90)
+#     t.forward(90 * k)
+#     t.right(90)
+#
+# t.up()
+#
+# for x in range(-20, 20):
+#     for y in range(-20, 20):
+#         t.goto(x * k, y * k)
+#         t.dot(4)
+#
+# t.update()
+# t.mainloop()
+
+# with open('1-1.txt') as file:
+#     s = file.readline()
+#
+# max_l = 0
+# cur_l = 1
+#
+# for i in range(len(s) - 1):
+#     if s[i] != s[i + 1]:
+#         cur_l += 1
+#         max_l = max(max_l, cur_l)
+#     else:
+#         cur_l = 1
+# print(max_l)
+
+# with open('1-2.txt') as file:
+#     s = file.readline()
+#
+# max_l = 0
+# cur_l = 1
+#
+# for i in range(len(s) - 1):
+#     if not(s[i] == 'I' and s[i + 1] == 'T') and not(s[i] == 'T' and s[i + 1] == 'I'):
+#         cur_l += 1
+#         max_l = max(cur_l, max_l)
+#     else:
+#         cur_l = 1
+# print(max_l)
+
+# with open('1-3.txt') as f:
+#     s = f.readline()
+#
+# cur_l = 0
+#
+# for i in range(len(s) - 2):
+#     if (s[i] in 'AEF') and (s[i + 1] in 'ABC') and (s[i + 2] not in 'AE') and (s[i] != s[i + 1] and s[i] != s[i + 2] and s[i + 1] != s[i + 2]):
+#         cur_l += 1
+#         print(s[i], s[i + 1], s[i + 2], i, i + 1, i + 2)
+# print(cur_l)
+
+# with open('1-4.txt') as f:
+#     s = f.readline()
+#
+# c = 'CAT'
+# while c in s:
+#     c += 'CAT'
+#
+# if c[:-1:] in s:
+#     print(len(c) - 1)
+# elif c[:-2:] in s:
+#     print(len(c) - 2)
+# elif c[:-3:] in s:
+#     print(len(c) - 3, s.find(c))
+
+
+# with open ('1-3.txt') as f:
+#     s = f.readline()
+#
+# cur = 0
+#
+# for i in range(len(s) - 4):
+#     if (s[i] in 'AEC') and (s[i + 1] != s[i] and s[i + 1] != s[i + 2]) and (s[i + 2] in 'ADF') and (s[i + 3] == s[i]):
+#         cur += 1
+# print(cur)
+
+# with open('1-1.txt') as f:
+#     s = f.readline()
+#
+# cur_l = 1
+# max_l = 0
+#
+# for i in range(len(s) - 1):
+#     if (s[i] != s[i + 1]) or (s[i] == 'Z' and s[i + 1] == 'Z'):
+#         cur_l += 1
+#         max_l = max(max_l, cur_l)
+#     else:
+#         cur_l = 1
+# print(max_l)
+
+# with open ('1-2.txt') as f:
+#     s = f.readline()
+#
+# cur = 0
+#
+# for i in range(len(s) - 4):
+#     res = s[i] + s[i + 1] + s[i + 2] + s[i + 3] + s[i + 4]
+#     if res == res[::-1]:
+#         cur += 1
+#
+# print(cur)
+
+# with open('2-2.txt') as f:
+#     s = f.readline()
+#
+# cur = 1
+# c = s[0]
+# max_l = 0
+#
+# a = []
+#
+# for i in range(len(s) - 1):
+#     if s[i] <= s[i + 1]:
+#         cur += 1
+#         c += s[i + 1]
+#         max_l = max(cur, max_l)
+#     else:
+#         a.append(c)
+#         c = s[i + 1]
+#         cur = 1
+# print(max_l, a)
+#
+# for j in a:
+#     if len(j) == max_l:
+#         print(j, max_l)
+#         break
+
+# with open('2-3.txt') as f:
+#     s = f.readline()
+#
+# c = ''
+#
+# a = []
+#
+# print(s)
+#
+# for i in range(len(s)):
+#     if s[i].isdigit():
+#         c += s[i]
+#     else:
+#         a.append(c)
+#         c = ''
+#
+# max_r = 0
+#
+# for x in a:
+#     if x.isdigit() and int(x) % 2 == 1 and int(x) > max_r:
+#         max_r = max(max_r, int(x))
+# print(max_r)
+
+# with open('2-4.txt') as f:
+#     s = f.readline()
+#
+# stringa = ''
+# a = []
+# flag = 'MOON'
+#
+# for i in range(len(s)):
+#     if flag in stringa + s[i] or i == len(s) - 1:
+#         a.append(stringa)
+#         stringa = ''
+#     else:
+#         stringa += s[i]
+#
+# print(a)
+# max_ans = 0
+#
+# for x in range(len(a)):
+#     max_ans = max(max_ans, len(a[x]))
+# print(max_ans)
+#
+# with open('2-4.txt') as file:
+#     s = file.readline()
+#
+# s = s.replace('MOON', 'MOO OON')
+#
+# # print(s)
+#
+# stringa = ''
+# a = []
+#
+# for i in range(len(s)):
+#     if s[i] != ' ':
+#         stringa = stringa + s[i]
+#         a.append(stringa)
+#     else:
+#         stringa = ''
+# print(a)
+# max_ans = 0
+#
+# for x in range(len(a)):
+#     max_ans = max(max_ans, len(a[x]))
+# print(max_ans)
+
+# c = 0
+# a = []
+#
+# with open('2-5.txt') as file:
+#     for line in file:
+#         line.replace('\n', '')
+#         a.append(line)
+#
+# for i in a:
+#     flag = 0
+#     for j in range(len(i) - 4):
+#         if i[j] == "M" and i[j + 2] == "H" and i[j + 3] == "P":
+#             flag = 1
+#     if flag:
+#         c += 1
+# print(c)
+
+# a = []  # массив строк
+# index_for_f = 0
+# c = 0
+# max_f = 10 ** 100
+# alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# z = []
+#
+# with open('2-5.txt') as f:
+#     for line in f:
+#         line = line.replace('\n', '')
+#         a.append(line)
+#
+# for i in a:
+#     z.append(i.count('F'))
+#
+# print(z)
+# strtr = ''
+#
+# for i in range(len(a)):
+#     if a[i].count('F') == min(z):
+#         strtr = a[i]
+#         # print(a[i])
+#         break
+#
+#
+# for i in range(len(a)):
+#     working_object = a[i]
+#     if working_object.count('F') == max_f:
+#         c += 1
+#
+#
+# cur = 0
+#
+# for line in a:
+#     cur += line.count('R')
+#
+# print(cur)
+
+# stR = a[index_for_f]
+#
+# print(stR)
+#
+#
+# for i in alphabet:
+#     print(strtr.count(i), i)
+#
+# max_quantity = - 10 ** 10
+# letter_quantity = ''
+#
+# for i in range(len(stR)):
+#     if stR.count(stR[i]) > max_quantity:
+#         max_quantity = stR.count(stR[i])
+#         letter_quantity = stR[i]
+# print()
+
+# with open('2-2.txt') as file:
+#     s = file.readline()
+#
+# a = []
+# cur = 0
+#
+# for i in range(len(s) - 9):
+#     if s[i] <= s[i + 1] <= s[i + 2] <= s[i + 3] <= s[i + 4] <= s[i + 5] <= s[i + 6] <= s[i + 7] <= s[i + 8]:
+#         a.append(s[i] + s[i + 1] + s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7] + s[i + 8])
+#         cur += 1
+#
+# print(a)
+#
+# print(a[0], cur)
+
+# with open('2-3.txt') as file:
+#     s = file.readline()
+# иди через строчки, а не через инты
+# number = []
+# numb = ''
+#
+# cur = 0
+# for i in range(len(s)):
+#     if s[i].isdigit():
+#         numb += s[i]
+#     else:
+#         if numb != '':
+#             number.append(int(numb))
+#         numb = ''
+#
+# print(number)
+#
+# for i in range(len(number)):
+#     try:
+#         if int(number[i]) % 3 == 0 and len(str(number[i]) == 5:
+#             cur += 1
+#             print(number[i])
+#     except:
+#         pass
+# print(cur)
+
+# with open('2-6.txt') as f:
+#     s = f.readline()
+#
+# s = s.replace('PEP8', 'PEP EP8')
+# cur = 0
+# a = []
+# add = ''
+#
+# for i in range(len(s)):
+#     if s[i] != ' ':
+#         add += s[i]
+#     else:
+#         a.append(add)
+#         add = ''
+# print(a)
+#
+# max_ans = 0
+# for i in a:
+#     max_ans = max(max_ans, len(i))
+# print(max_ans)
+
+
+# a = []
+# with open('2-5.txt') as f:
+#     for line in f:
+#         line = line.replace('\n', '')
+#         a.append(line)
+#
+# max_spree = 0
+# letter = ''
+# index = 0
+# alphabet = 'ABCDEFGHIJKLMOPQRSTUVWXYZ'
+# alphabet = alphabet[::-1]
+#
+# for x in range(len(a)):
+#     work_str = a[x]
+#     cur = 1
+#     for i in range(len(work_str) - 1):
+#         if work_str[i] == work_str[i + 1]:
+#             cur += 1
+#             if cur > max_spree:
+#                 letter = work_str[i]
+#                 index = x
+#             max_spree = max(cur, max_spree)
+#         else:
+#             cur = 1
+#
+# current_string = a[index]
+# minim = 10 ** 10
+# min_elem = ''
+#
+# for elem in alphabet:
+#     if current_string.count(elem) < minim:
+#         minim = current_string.count(elem)
+#         min_elem = elem
+#     # print(current_string.count(elem), elem)
+# print(minim, min_elem)
+#
+# summmma = 0
+#
+# for x in a:
+#     summmma += x.count('U')
+# print(summmma)
+# # print(max_spree, letter, index)
+
+# with open('1-1.txt') as f:
+#     s = f.readline()
+#
+# cur = 1
+# max_cur = 0
+#
+# for i in range(len(s) - 1):
+#     if s[i] == s[i + 1] and s[i] == 'X':
+#         cur += 1
+#         max_cur = max(max_cur, cur)
+#     else:
+#         cur = 1
+# print(max_cur)
+
+# with open('1-5.txt') as file:
+#     s = file.readline()
+#
+# flag = 'HA'
+#
+# while flag in s:
+#     flag += 'HA'
+# print(flag)
+# print(s.count(flag))
+#
+# flag = flag[:len(flag) - 1:]
+#
+# print(s.count(flag))
+#
+# print(len(flag))
+
+# with open('3-1.txt') as file:
+#     s = file.readline()
+#
+# number = []
+# add = ''
+#
+# for i in range(len(s)):
+#     if s[i].isdigit():
+#         add += s[i]
+#     else:
+#         number.append(add)
+#         add = ''
+#
+# cur = 0
+# max_res = 0
+#
+# for i in range(len(number)):
+#     try:
+#         if int(number[i]) % 3 == 0 and number[i][0] != '0':
+#             max_res = max(max_res, int(number[i]))
+#     except:
+#         pass
+# print(max_res)
+
+# with open('3-2.txt') as file:
+#     s = file.readline()
+#
+# pair_count = 0
+# cur = 0
+# index = 0
+# sd = ''
+# a = []
+# max_res = 0
+#
+# while index < (len(s) - 1):
+#     if (s[index] == 'H' and s[index + 1] == "I") or (s[index] == 'F' and s[index + 1] == "I"):
+#         cur += 2
+#         # print(index)
+#         sd += s[index] + s[index + 1]
+#         pair_count = max(cur, pair_count)
+#         index += 2
+#     else:
+#         # print(index)
+#         a.append(sd)
+#         cur = 0
+#         index += 1
+#         sd = ''
+# # print(pair_count)
+# for i in a:
+#     if len(i) > max_res:
+#         max_res = len(i)
+# # print(max_res)
+# print(a)
+
+# with open('3-1.txt') as f:
+#     s = f.readline()
+#
+# word = ''
+# c = 0
+# dictionary = []
+#
+# for i in range(len(s)):
+#     if not s[i].isdigit():
+#         word += s[i]
+#     else:
+#         dictionary.append(word)
+#         word = ''
+# for i in range(len(dictionary)):
+#     if len(dictionary[i]) == 5:
+#         c += 1
+#         print(dictionary[i])
+# # print(c)
+# print(dictionary) #важно добавить циферку/буковку в конец файла, чтобы всё нужное попало в массив!!!!!!!!!
+
+# a = []
+#
+# with open('3-3.txt') as f:
+#     s = f.readline()
+# add = ''
+# # print(s.count('CAB') - s.count('CABDEF'))
+# for i in range(len(s)):
+#     add = ''
+#     if s[i] == 'B':
+#         add += 'B'
+#         for j in range(i + 1, len(s)):
+#             add += s[j]
+#             if s[j] == 'D':
+#                 break
+#     a.append(add)
+# c = 0
+# for i in range(len(a)):
+#     if 10 <= len(a[i]) <= 12:
+#         c += 1
+# # print(c)
+# print(a)
+
+
+# with open('24_1302.txt') as file:
+#     s = file.readline()
+#
+# s = s.replace('XZZY', 'XZZ ZZY')
+#
+# a = []
+# add = ''
+#
+# for i in range(len(s)):
+#     if s[i] != ' ':
+#         add += s[i]
+#     else:
+#         a.append(add)
+#         add = ''
+#
+# max_ans = 0
+# for i in range(len(a)):
+#     if len(a[i]) > max_ans:
+#         max_ans = len(a[i])
+# print(max_ans)
+
+# with open('24_1866.txt') as file:
+#     s = file.readline()
+#
+# s = s.replace('ad', 'a d').replace('da', 'd a')
+#
+# a = []
+# add = ''
+#
+# for i in range(len(s)):
+#     if s[i] != ' ':
+#         add += s[i]
+#     else:
+#         a.append(add)
+#         add = ''
+#
+# max_ans = 0
+# for i in range(len(a)):
+#     if len(a[i]) > max_ans:
+#         max_ans = len(a[i])
+# print(a, max_ans)
+
+# a = []
+# for i in range(118811, 118973):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 6:
+#         a.append(i)
+# # delit = sort(delit)
+# # print(delit)
+# print(a)
+#
+# delit = []
+# for j in range(1, int(a[2] ** 0.5) + 1):
+#     if a[2] % j == 0:
+#         delit.append(j)
+#         if a[2] // j != j:
+#             c += 1
+#             delit.append(a[2] // j)
+# delit.sort()
+# print(delit)
+
+# res = []
+# for i in range(190201, 190281):
+#     a = []
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if j % 2 == 0:
+#                 c += 1
+#             if i // j != j:
+#                 if (i // j) % 2 == 0:
+#                     c += 1
+#     if c == 4:
+#         res.append(i)
+# print(res)
+# z = []
+# for j in range(1, int(res[1] ** 0.5) + 1):
+#     if res[1] % j == 0:
+#         if j % 2 == 0:
+#             z.append(j)
+#         if res[1] // j != j:
+#             if (res[1] // j) % 2 == 0:
+#                 z.append(res[1] // j)
+# z.sort(reverse=True)
+# print(z)
+
+ans = []
+
+# for i in range(2943444, 2943530):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 2:
+#         ans.append(i)
+# ans.sort()
+# for i in ans:
+#     print(i, end=' ')
+
+# ans = []
+# for i in range(2532000, 2532161):
+#     c = 0
+#     for j in range(1, int(i ** 0.5 ) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 2:
+#         ans.append(i)
+#     if len(ans) == 5:
+#         ans.sort()
+#         for q in ans:
+#             print(q, end = ' ')
+#         break
+
+# ans = []
+# for i in range(2532000, 2532161):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 2:
+#         ans.append(i)
+# ans.sort()
+# print(ans)
+# for i in range(0, len(ans), 3):
+#     print(ans[i], end=' ')
+
+# ans = []
+# for i in range(2, 20000):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 2:
+#         ans.append(i)
+# print(len(ans))
+
+# ans = []
+# for i in range(3661, 33625):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 3:
+#         ans.append(i)
+# print(len(ans))
+
+# ans = []
+# for i in range(81234, 134689):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#             if i % j == 0:
+#                 c += 1
+#                 if i // j != j:
+#                     c += 1
+#     if c == 5:
+#         ans.append(i)
+# print(ans)
+# for x in ans:
+#     delit = []
+#     for j in range(2, int(x ** 0.5) + 1):
+#         if x % j == 0:
+#             delit.append(j)
+#             if x // j != j:
+#                 delit.append(x // j)
+#     print(min(delit), max(delit))
+
+# a = []
+# for i in range(394441, 394506):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     a.append(c)
+# d = max(a)
+# print(d)
+# for i in range(394441, 394506):
+#     c = 0
+#     delit = []
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             delit.append(j)
+#             if i // j != j:
+#                 c += 1
+#                 delit.append(i // j)
+#     if c == 48:
+#         delit.sort()
+#         print(delit)
+#         break
+
+# ans = []
+# for i in range(194441, 196501):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c % 2 == 1:
+#         ans.append(i)
+#
+# w_num = ans[2]
+# c = 0
+# for j in range(1, int(w_num ** 0.5) + 1):
+#     if w_num % j == 0:
+#         c += 1
+#         if w_num // j != j:
+#             c += 1
+#         if j ** 2 == w_num:
+#             print(j)
+# print(c, w_num)
+
+# ans = []
+# for i in range(1686, 13277):
+#     flag = 1
+#     num = i
+#     while num > 0:
+#         if num % 10 % 2 == 0:
+#             flag = 0
+#         num //= 10
+#     if flag:
+#         ans.append(i)
+#
+# print(ans)
+# summa = 0
+# for i in ans:
+#     num = i
+#     while num > 0:
+#         summa += num % 10
+#         num //= 10
+# print(summa)
+
+# ans = []
+# for i in range(326496, 649633):
+#     c_Nech = 0
+#     c_Chet = 0
+#     cntr = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             cntr += 1
+#             if j % 2 == 0:
+#                 c_Chet += 1
+#             if j % 2 == 1:
+#                 c_Nech += 1
+#             if i // j != j:
+#                 cntr += 1
+#                 if (i // j) % 2 == 0:
+#                     c_Chet += 1
+#                 if (i // j) % 2 == 1:
+#                     c_Nech += 1
+#     if c_Nech == c_Chet and c_Nech >= 70:
+#         ans.append(i)
+
+# ans = [450450, 589050, 630630]
+#
+# for i in ans:
+#     for j in range(1000, i):
+#         if i % j == 0:
+#             print(i, j)
+#             break
+
+# start, end = 326496, 649632
+#
+# def allDivs( x ):
+#   divs = [1, x]
+#   d = 2
+#   while d*d <= x:
+#     if x % d == 0:
+#       divs.append( d )
+#       if x // d > d:
+#         divs.append( x//d )
+#     d += 1
+#   return sorted(divs)
+#
+# for x in range( start, end+1 ):
+#   divs = allDivs(x)
+#   even = [d for d in divs if d % 2 == 0]
+#   odd = [d for d in divs if d % 2 == 1]
+#   if len(odd) == len(even) and len(even) >= 70:
+#     print( x, min( d for d in divs if d > 1000 ) )
+# есть вот такой вариант, но он тоже не быстрый
+
+ans = []
+
+# def d(x):
+#     dels = set()
+#     for d in range(1, int(x ** 0.5) + 1):
+#         if x % d == 0:
+#             if d % 2 != 0:
+#                 dels.add(d)
+#             if (x // d) % 2 != 0:
+#                 dels.add(x // d)
+#     if (int(x ** 0.5) ** 2 == x):
+#         dels.add(int(x ** 0.5))
+#     dels = sorted(dels)
+#     return dels
+#
+#
+# for i in range(326496, 649633):
+#     c = 0
+#     if i % 2 == 0 and i % 4 != 0:
+#         if len(d(i)) >= 70:
+#             for j in range(1000, i):
+#                 if i % j == 0:
+#                     print(i, j)
+#                     break
+
+# def is_prime(n):  # для делителей
+#     c = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             c += 1
+#             if n // i != i:
+#                 c += 1
+#     if c == 2:
+#         return 1
+#     else:
+#         return 0
+#
+#
+# # 1 - НЕ ПРОСТОЕ ЧИСЛО!!!!
+# ans = []
+# for i in range(125697, 190234):
+#     for j in range(2, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if is_prime(j) and is_prime(i // j) and j != (i // j): #чел, они различные
+#                 ans.append(i)
+# print(ans, len(ans), max(ans))
+
+# def check(n):
+#     flag = 1
+#     for i in range(2, n + 1):
+#         if i * i > n:
+#             break
+#         if n % (i * i) == 0:
+#             flag = 0
+#             break
+#     return flag
+#
+# ans = []
+# summa = 0
+# for i in range(2945, 18295):
+#     if check(i):
+#         ans.append(i)
+#
+# for i in ans:
+#     work = i
+#     while work > 0:
+#         summa += work % 10
+#         work //= 10
+# print(summa)
+#
+
+# def is_prime(n):
+#     cntr = 0
+#     for j in range(1, int(n ** 0.5) + 1):
+#         if n % j == 0:
+#             cntr += 1
+#             if n // j != j:
+#                 cntr += 1
+#     if cntr == 2:
+#         return 1
+#     else:
+#         return 0
+#
+#
+# c = 1
+# for i in range(194441, 196501):
+#     if is_prime(i) == 1 and i % 100 == 93:
+#         print(c, i)
+#     c += 1
+# 1 195193
+# 2 195493
+# 3 195593
+# 4 195893
+# 5 196193
+
+# def is_unique(n):
+#     work_str = str(n)
+#     if int(work_str[0]) % 2 == 1 and int(work_str[1]) % 2 == 1 and int(work_str[2]) % 2 == 0 \
+#             and int(work_str[3]) % 2 == 0 and int(work_str[4]) % 2 == 0:
+#         return 1
+#     else:
+#         return 0
+#
+#
+# ans = []
+# for i in range(57888, 74556):
+#     if is_unique(i):
+#         if i % 7 != 0 and i % 9 != 0 and i % 13 != 0:
+#             ans.append(i)
+# print(len(ans), max(ans) - min(ans))
+
+# dev = []
+# for i in range(2, 50):
+#     dev.clear()
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             dev.append(j)
+#             if i // j != j:
+#                 dev.append(i // j)
+#     dev.sort()
+#      print(dev, i)
+
+# a = []
+# for i in range(78920, 92431):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 5:
+#         a.append(i)
+# print(a)
+# for elem in a:
+#     dev = []
+#     for j in range(1, int(elem ** 0.5) + 1):
+#         if elem % j == 0:
+#             dev.append(j)
+#             if elem // j != j:
+#                 dev.append(elem // j)
+#     dev.sort()
+#     for t in dev:
+#         print(t, end=' ')
+#     print()
+
+# def is_prime(n):
+#     cntr = 0
+#     for j in range(1, int(n ** 0.5) + 1):
+#         if n % j == 0:
+#             cntr += 1
+#             if n // j != j:
+#                 cntr += 1
+#     if cntr == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# ans = []
+# for i in range(3532000, 3532161):
+#     if is_prime(i):
+#         ans.append(i)
+# ans.sort(reverse=True)
+# for i in ans:
+#     print(i, end=' ')
+
+# def is_prime(n):
+#     cntr = 0
+#     for j in range(1, int(n ** 0.5) + 1):
+#         if n % j == 0:
+#             cntr += 1
+#             if n // j != j:
+#                 cntr += 1
+#     if cntr == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# ans = []
+# for i in range(2532000, 2532161):
+#     if is_prime(i) and i % 10 == 7:
+#         ans.append(i)
+# ans.sort()
+# print(ans)
+
+# def check(n):
+#     flag = 1
+#     for i in range(2, n):
+#         if i * i > n:
+#             break
+#         if n % (i * i) == 0:
+#             flag = 0
+#             break
+#     return flag
+#
+# ans = []
+# for i in range(2945, 18295):
+#     if check(i):
+#         ans.append(i)
+# summa = 0
+# for x in ans:
+#     work = x
+#     while work > 0:
+#         summa += work % 10
+#         work //= 10
+# print(summa)
+
+# def to_eleven(n):
+#     work = n
+#     s = ''
+#     while work > 0:
+#         s += str((work % 11))
+#         work //= 11
+#     s = s[::-1]
+#     if '2' in s:
+#         return 0
+#     else:
+#         return 1
+#
+# ans = []
+# for i in range(2031, 14313):
+#     if to_eleven(i):
+#         ans.append(i)
+# print(max(ans))
+
+# def is_prime(n):
+#     cntr = 0
+#     for j in range(1, int(n ** 0.5) + 1):
+#         if n % j == 0:
+#             cntr += 1
+#             if n // j != j:
+#                 cntr += 1
+#     if cntr == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# ans = []
+# for i in range(2948, 20195):
+#     if is_prime(i):
+#         ans.append(i)
+# print(max(ans))
+
+# ans = []
+# for i in range(326496, 649633):
+#     even_c = 0
+#     odd_c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if j % 2 == 0:
+#                 even_c += 1
+#             else:
+#                 odd_c += 1
+#             if i // j != j:
+#                 if (i // j) % 2 == 0:
+#                     even_c += 1
+#                 else:
+#                     odd_c += 1
+#     if even_c >= 70 and odd_c >= 70:
+#         ans.append(i)
+
+# ans = [450450, 589050, 630630]
+# delit = []
+# work = ans[0]
+# for j in range(1, int(work ** 0.5) + 1):
+#     if work % j == 0:
+#         delit.append(j)
+#         if work // j != j:
+#             delit.append(work // j)
+# delit.sort()
+# print(delit)
+
+# def check(n):
+#     flag = 1
+#     work = n
+#     while work > 0:
+#         if work % 10 % 2 == 0:
+#             flag = 0
+#             break
+#         work //= 10
+#     return flag
+#
+# ans = []
+# for i in range(1686, 13277):
+#     if check(i):
+#         ans.append(i)
+#
+# summa = 0
+# for elem in ans:
+#     copy = elem
+#     while copy > 0:
+#         summa += copy % 10
+#         copy //= 10
+# print(summa)
+
+# absolute_maxx = 0
+# maxx = 0
+# flag = 0
+# number_of_deviders = 0
+
+# dev = []
+# for i in range(394480, 394541):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     dev.append(c)
+# cntr = 0
+# for i in range(len(dev)):
+#     if dev[i] == max(dev):
+#         cntr += 1
+#         print(i)
+# print(cntr)
+#
+# #индексы наших чисел - 5, 20, 26, 44
+# cntr = 0
+# for i in range(394480, 394541):
+#     if cntr == 26:
+#         print(i)
+#         break
+#     cntr += 1
+
+# a = []
+# for i in range(573213, 575341):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 4:
+#         a.append(i)
+#
+# summa_div = []
+# print(a)
+# min_summ = 10 ** 10
+# min_i = 0
+#
+# for i in range(len(a)):
+#     c = 0
+#     summa = 0
+#     for j in range(1, int(a[i] ** 0.5) + 1):
+#         if a[i] % j == 0:
+#             summa += j
+#             if a[i] // j != j:
+#                 summa += (a[i] // j)
+#     if summa < min_summ:
+#        min_summ = summa
+#        min_i = i
+#     summa_div.append(summa)
+#
+# print(min_i, a[50], summa_div[50])
+# 573431 967 593 1
+
+# ans = []
+# for i in range(100715, 100743):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 4:
+#         ans.append(i)
+# # print(ans)
+# print(len(ans))
+#
+# for i in ans:
+#     print(i, end=' ')
+#     for j in range(2, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if i // j != j:
+#                 print(i // j, j)
+# 100715 20143 5
+# 100718 50359 2
+# 100721 2143 47
+# 100723 14389 7
+# 100726 50363 2
+# 100727 9157 11
+# 100729 383 263
+# 100731 33577 3
+# 100735 20147 5
+# 100739 769 131
+
+# delit = []
+# for i in range(244441, 244506):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     delit.append(c)
+# print(delit, max(delit), sep='\n')
+# t = 0
+# for i in delit:
+#     if i == max(delit):
+#         break
+#     t += 1
+# t = 59
+# work = 244441 + 59
+# for j in range(1, w)
+
+# def f(n):
+#     c = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             c += 1
+#             if n // i != i:
+#                 c += 1
+#     return c
+#
+# ans = []
+# for i in range(100715, 100743):
+#     if f(i) == 4:
+#         ans.append(i)
+#         # print(i, end=' ')
+#         for j in range(2, int(i ** 0.5) + 1):
+#             if i % j == 0:
+#                 if i // j != j:
+#                     print(i // j, j)
+# print(ans)
+
+# ans = []
+# for i in range(620812, 622401):
+#     c_odd = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if j % 2 == 1:
+#                 c_odd += 1
+#             if i // j != j:
+#                 if (i // j) % 2 == 1:
+#                     c_odd += 1
+#     if c_odd == 4:
+#         ans.append(i)
+# #ans - массив чисел, у которых только 4 различных нечётных делителя
+# delit = []
+# for i in ans:
+#     summa = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             if j % 2 == 1:
+#                 summa += j
+#             if i // j != j:
+#                 if (i // j) % 2 == 1:
+#                     summa += (i // j)
+#     delit.append(summa)
+# index_of_max = delit.index(max(delit))
+# print(index_of_max)
+# print(ans[index_of_max], max(delit))
+# for i in range(len(delit)):
+#     if delit[i] == max(delit):
+#         print(i)
+#         break
+# print(ans[429], max(delit))
+
+# def is_prime(n):
+#     cntr = 0
+#     for j in range(1, int(n ** 0.5) + 1):
+#         if n % j == 0:
+#             cntr += 1
+#             if n // j != j:
+#                 cntr += 1
+#     if cntr == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# ans = []
+# for i in range(194441, 196501):
+#     if is_prime(i) and i % 100 == 47:
+#         ans.append(i)
+# ans.sort(reverse=True)
+# print(ans)
+# for i in ans:
+#     summa = 0
+#     work = i
+#     while work > 0:
+#         summa += work % 10
+#         work //= 10
+#     print(summa, i)
+
+# def d(n):
+#     a = []
+#     summa = 0
+#     for i in range(2, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             if i % 2 == 1:
+#                 summa += i
+#                 a.append(i)
+#             if n // i != i:
+#                 if (n // i) % 2 == 1:
+#                     summa += (n // i)
+#                     a.append(n // i)
+#     # a.sort()
+#     return sum(a)
+#     # print(a)
+#
+# # d(812322)
+# begin = 812322
+# c = 0
+# while True:
+#     # print(d(begin))
+#     # c += 1
+#     # if c == 100:
+#     #     break
+#     # begin += 1
+#     res = d(begin)
+#     if res % 205 == 21:
+#         print(begin, res)
+#         c += 1
+#     if c == 4:
+#         break
+#     begin += 1
+
+# def d(n):
+#     a = []
+#     summa = 0
+#     for i in range(2, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             if i % 2 == 0:
+#                 summa += i
+#                 a.append(i)
+#             if n // i != i:
+#                 if (n // i) % 2 == 0:
+#                     summa += (n // i)
+#                     a.append(n // i)
+#     # a.sort()
+#     return sum(a)
+#     # print(a)
+#
+# c = 0
+# for i in range(468738, 10000000):
+#     res = d(i)
+#     if res % 412 == 78:
+#         print(i, res)
+#         c += 1
+#     if c == 7:
+#         break
+
+# ans = []
+# for i in range(222987, 223022):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c += 1
+#     if c == 4:
+#         ans.append(i)
+# work = ans[len(ans) - 1]
+# print(ans)
+# divs = []
+# for i in range(1, int(work ** 0.5) + 1):
+#     if work % i == 0:
+#         divs.append(i)
+#         if work // i != i:
+#             divs.append(work // i)
+# divs.sort()
+# for i in divs:
+#     print(i, end=' ')
+
+# def is_prime(n):
+#     c = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             c += 1
+#             if n // i != i:
+#                 c += 1
+#     if c == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# ans = []
+# for i in range(4671032, 4671107):
+#     if is_prime(i):
+#         ans.append(i)
+# print(ans)
+# ans.sort()
+# for i in ans:
+#     print(i, end=' ')
+
+# ans = []
+# for i in range(135790, 163229):
+#     summa = 0
+#     for j in range(2, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             summa += j
+#             if (i // j) != j:
+#                 summa += (i // j)
+#     if summa > 460000:
+#         ans.append(i)
+# print(ans[1])
+# work = ans[1]
+# s = 0
+# c = 0
+# for i in range(2, int(work ** 0.5) + 1):
+#     if work % i == 0:
+#         c += 1
+#         s += i
+#         if work // i != i:
+#             c += 1
+#             s += (work // i)
+# print(c, s)
+
+# ans = []
+# a = []
+# for i in range(586132, 586431):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c +=1
+#     ans.append(c)
+# max_del = max(ans)
+# print(max_del)
+# for i in range(586132, 586431):
+#     c = 0
+#     for j in range(1, int(i ** 0.5) + 1):
+#         if i % j == 0:
+#             c += 1
+#             if i // j != j:
+#                 c +=1
+#     if c == max_del:
+#         a.append(i)
+#         print(c)
+#
+# print(max(a), min(a))
+#
+# for i in range(max(a), 1, -1):
+#     if max(a) % i == 0:
+#         print(i, end=' ')
+# print()
+# for i in range(min(a), 1, -1):
+#     if min(a) % i == 0:
+#         print(i, end=' ')
+
+# for a in range(2):
+#     for e in range(2):
+#         for f in range(2):
+#             for l in range(2):
+#                 f = ((not(f)) and f) <= (not(((not(l)) or a)))
+
+# for i in range(123450608, 123459698 + 1):
+#     num = str(i)
+#     if num[:5:] == "12345" and num[-3] == '6' and num[-1] == '8':
+#         if i % 17 == 0:
+#             print(i, i // 17, end=' ')
+
+# 123?5?6?8
+
+# for i in range(123050608, 123959698 + 1):
+#     num = str(i)
+#     if num[:3:] == '123' and num[-1] == '8' and num[-3] == '6' and num[-5] == '5':
+#         if i % 23 == 0 and num.count('6') > 2:
+#             print(i, i // 23, end=' ')
+#
+# 12?3*46
+#
+
+# from fnmatch import fnmatch #!!СПОСОБ ЧЕРЕЗ FNMATCH!!
+# for i in range(120346, 12939946 + 1): #смотрим на ограничения числа
+#     if fnmatch(str(i), "12?3*46"):
+#         if i % 129 == 0:
+#             print(i, i // 129, end=' ')
+
+# 12?3*46
+# comb = [' ']
+# for i in '0123456789':
+#     comb.append(i)
+# for i in '0123456789':
+#     for j in '0123456789':
+#         comb.append(i + j)
+# res = []
+# for a in comb:
+#     for b in '0123456789':
+#         num = int(f'123{b}4{a}5'.replace(' ', ''))
+#         if num % 129 == 0:
+#             res.append((num, num // 129))
+#             print(num, num // 129)
+# res.sort()
+# print(* res)
+#         #num = '123' + b + '4' + a + '46'
+
+# *?66?6
+
+# def delit(n):
+#     summa = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             summa += i
+#             if n // i != i:
+#                 summa += (n // i)
+#     return summa
+
+# comb = [' ']
+# for i in '123456789':
+#     comb.append(i)
+# for i in '123456789':
+#     for j in '0123456789':
+#         comb.append(i + j)
+# cntr = 0
+# res = []
+# for a in comb:
+#     for b in '0123456789':
+#         for c in '0123456789':
+#             num = int(f'{a}{b}66{c}6'.replace(' ', ''))
+#             if num % 6 == 0 and num % 7 == 0 and num % 8 == 0:
+#                 cntr += 1
+#                 res.append(num)
+#             if cntr == 5:
+#                 break
+# res.sort()
+# for i in res:
+#     print(i, delit(i), end=' ')
+#
+# ans = []
+# from fnmatch import fnmatch
+# for i in range(23213, 23999213 + 1):
+#     if fnmatch(str(i), "23*21*3"):
+#         if i % 1913 == 0:
+#             print(i, i // 1913)
+# print(*ans)
+
+# 12*45*
+# from fnmatch import fnmatch
+# for i in range(1245, 129945):
+#     if fnmatch(str(i), "12*45*"):
+#         if i % 51 == 0:
+#             print(i, i // 51, end=' ')
+
+# ?3?2*4
+
+# comb = [' ']
+# for i in '0123456789':
+#     for j in '0123456789':
+#         for k in '0123456789':
+#             comb.append(i + j + k)
+# ans = []
+# for a in '123456789':
+#     for b in '0123456789':
+#         for c in comb:
+#             num = int(f'{a}3{b}2{c}4'.replace(' ', ''))
+#             if num % 49659 == 0:
+#                 ans.append((num, num // 49659))
+# ans.sort()
+# print(*ans)
+
+# 2?3?5?0
+# ans = []
+# for i in range(2030500, 2939590 + 1):
+#     c = 0
+#     a = '123456789'
+#     num = str(i)
+#     if num[0] == '2' and num[2] == '3' and num[4] == '5' and num[6] == '0':
+#         for j in a:
+#             if i % int(j + '2') == 0:
+#                 c += 1
+#     if c >= 4:
+#         for j in a:
+#             if i % int(j + '2') == 0:
+#                 ans.append((i, i // int(j + '2')))
+#                 break
+# ans.sort()
+# print(*ans)
+
+# from fnmatch import fnmatch
+# ans = []
+# for i in range(168, 199999959 + 1, 21):
+#     if fnmatch(str(i), '1*5*9'):
+#         work = str(i)
+#         flag = 1
+#         for j in range(len(work) - 1):
+#             if int(work[j]) >= int(work[j + 1]):
+#                 flag = 0
+#                 break
+#         if flag and i % 21 == 0:
+#             ans.append((i, i // 21))
+# ans.sort()
+# print(*ans)
+
+# from fnmatch import fnmatch
+# ans = []
+# for i in range(2180782, 29123496 + 1):
+#     if fnmatch(str(i), "2*1234?6"):
+#         if i % 37 == 0:
+#             ans.append((i, i // 37))
+# ans.sort()
+# print(*ans)
+
+# from fnmatch import fnmatch
+# ans = []
+# c = 0
+# for i in range(700011, 10 ** 10, 13):
+#     if not (fnmatch(str(i), "*0??3*")) and not (fnmatch(str(i), "*4??2")) and not (fnmatch(str(i), "*1*")):
+#         c += 1
+#         ans.append(i)
+#     if c == 5:
+#         break
+# for i in ans:
+#     x = i
+#     summa = 0
+#     while x > 0:
+#         summa += x % 10
+#         x //= 10
+#     print(i, summa)
+
+# def dev_count(n):
+#     s = 0
+#     for i in range(2, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             s += i
+#             if n // i != i:
+#                 s += (n // i)
+#                 break
+#     return s
+#
+# begin = 452022
+# cntr = 0
+# while True:
+#     if cntr == 5:
+#         break
+#     if dev_count(begin) % 7 == 3:
+#         print(begin, dev_count(begin), end=' ')
+#         cntr += 1
+#     begin += 1
+
+# def f(n):
+#     flag = 0
+#     for i in range(2, n - 1):
+#         if n % i == 0:
+#             if i % 10 == 8 and i != 8:
+#                 flag = 1
+#                 break
+#     return flag
+#
+# def exs(n):
+#     for i in range(2, n - 1):
+#         if n % i == 0:
+#             if i % 10 == 8 and i != 8:
+#                 print(i, end=' ')
+#                 break
+#
+# cntr = 0
+# b = 500001
+# while True:
+#     flagpole = f(b)
+#     if flagpole:
+#         print(b, end=' ')
+#         exs(b)
+#         cntr += 1
+#     if cntr == 5:
+#         break
+#     b += 1
+
+# 12345?6?8
+# from fnmatch import fnmatch
+#
+# for i in range(123450608, 123459698 + 1):
+#     if fnmatch(str(i), "12345?6?8"):
+#         if i % 17 == 0:
+#             print(i, i // 17, end=' ')
+
+# from fnmatch import fnmatch
+# for i in range(12408, 12349997 + 1, 141):
+#     if fnmatch(str(i), "1234*7"):
+#         if i % 141 == 0:
+#             print(i, i // 141, end=' ')
+
+# from fnmatch import fnmatch
+# for i in range(1097349, 1995499921 + 1, 3023):
+#     if fnmatch(str(i), "1?954*21"):
+#         if i % 3023 == 0:
+#             print(i, end=' ')
+
+# print('a e f l')
+# for a in range(2):
+#     for e in range(2):
+#         for f in range(2):
+#             for l in range(2):
+#                 func = ((not f) and e) <= (not((not l) or a))
+#                 if not func:
+#                     print(l, a, e, f)
+
+# def f(n):
+#     str_n = str(n)
+#     s1 = int(str_n[0]) + int(str_n[2]) + int(str_n[4])
+#     s2 = int(str_n[1]) + int(str_n[3])
+#     return str(min(s1, s2)) + str(max(s1, s2))
+#
+# for i in range(10000, 99999):
+#     if f(i) == '922':
+#         print(i)
+
+# import turtle as t
+#
+# k = 20
+# t.tracer(0,0)
+# t.left(90)
+#
+# for i in range(2):
+#     t.forward(10 * k)
+#     t.right(90)
+#     t.forward(18 * k)
+#     t.right(90)
+# t.up()
+# t.back(6 * k)
+# t.right(90)
+# t.forward(14 * k)
+# t.left(90)
+# t.down()
+# for i in range(2):
+#     t.forward(17 * k)
+#     t.right(90)
+#     t.forward(5 * k)
+#     t.right(90)
+#
+# t.up()
+# for x in range(-20, 20):
+#     for y in range(-20, 20):
+#         t.goto(x * k, y * k)
+#         t.dot()
+#
+# t.update()
+# t.mainloop()
+
+# s = '2' * 19 + '5' + '3' * 10
+# while '233' in s or '225' in s:
+#     if '233' in s:
+#         s = s.replace('233', '3', 1)
+#     if '225' in s:
+#         s = s.replace('225', '52', 1)
+# print(s)
+
+# for x in range(20, -1, -1):
+#     flag = 1
+#     for y in range(0, 21):
+#         m = 3 * 21 ** 4 + 6 * 21 ** 3 + y * 21 ** 2 + x * 21 ** 1 + 9 * 21 ** 0
+#         n = 1 * 21 ** 4 + 2 * 21 ** 3 + y * 21 ** 2 + 9 * 21 ** 1 + 9 * 21 ** 0
+#         if (n + m) % 18 != 0:
+#             flag = 0
+#             break
+#     if flag:
+#         m = 3 * 21 ** 4 + 6 * 21 ** 3 + 5 * 21 ** 2 + x * 21 ** 1 + 9 * 21 ** 0
+#         n = 1 * 21 ** 4 + 2 * 21 ** 3 + 5 * 21 ** 2 + 9 * 21 ** 1 + 9 * 21 ** 0
+#         print((m + n) // 18, (m + n) / 18, x)
+
+
+# def f(n):
+#     if n <= 1:
+#         return 0
+#     if n > 1 and n % 6 == 0:
+#         return n + f(n // 6 - 2)
+#     if n > 1 and n % 6 != 0:
+#         return n + f(n + 6)
+#
+# print(f(4404))
+# for i in range(10000):
+#     try:
+#         if f(i) > 4242:
+#             print(f(i), i)
+#             break
+#     except:
+#         pass
+
+# a = []
+# with open('17 (1).txt') as file:
+#     for line in file:
+#         a.append(int(line))
+#  res = 0
+# for i in range(len(a)):
+#     if a[i] % 100 == 0:
+#         res += 1
+# cntr = 0
+# absolute_max = -10 ** 10
+# for i in range(len(a) - 1):
+#     if (a[i] < 0 or a[i + 1] < 0) and (a[i] + a[i + 1]) < res:
+#         cntr += 1
+#         if a[i] + a[i + 1] > absolute_max:
+#             absolute_max = a[i] + a[i + 1]
+# print(cntr, absolute_max)
+
+# def func(f, e):
+#     if f == e:
+#         return 1
+#     if f > e or f == 21:
+#         return 0
+#     if f < e:
+#         return func(f + 3, e) + func(f * 2, e)
+#
+# print(func(6, 42))
+
+# with open('24.txt') as file:
+#     s = file.readline()
+# begin = 0
+# cntr = 0
+# max_len = 0
+# while begin != len(s) - 1 or s[begin] != "!":
+#     if s[begin] in "AE" and s[begin + 1] in "BCD":
+#         print(begin)
+#         cntr += 1
+#         max_len = max(max_len, cntr)
+#         begin += 2
+#         # if begin + 2 != len(s):
+#         #     begin += 2
+#         # else:
+#         #     break
+#     else:
+#         cntr = 0
+#         begin += 1
+# print(max_len)
+
+# from fnmatch import fnmatch
+# #?2*4*0 200 000 000 92 999 940      / // / / / 92 499 990
+#
+# for i in range(1260, 92999940, 42):
+#     if fnmatch(str(i), "?2*4*0") and not(fnmatch(str(i), "1*7*")) and i % 42 == 0:
+#         print(i, i // 42)
+
+# def win(s1, s):
+#     return s1 + s >= 68
+#
+#
+# def first(s1, s):
+#     return (win(s1 + 1, s) or win(s1, s + 1) or win(3 * s1, s) or win(s1, 3 * s)) and not (win(s1, s))
+#
+#
+# def second(s1, s):
+#     return first(s1 + 1, s) and first(s1, s + 1) and first(3 * s1, s) and first(s1, 3 * s) and not (win(s1, s))
+#
+#
+# def third(s1, s):
+#     return (second(s1 + 1, s) or second(s1, s + 1) or second(3 * s1, s) or second(s1, 3 * s)) and not (win(s1, s))
+#
+#
+# def fourth(s1, s):
+#     return (third(s1 + 1, s) or first(s1 + 1, s)) and (third(s1, s + 1) or first(s1, s + 1)) and \
+#            (third(3 * s1, s) or first(3 * s1, s)) and (third(s1, 3 * s) or first(s1, 3 * s)) and not (win(s1, s))
+#
+#
+# print("Ответы для 19")
+# for i in range(1, 62):
+#     if third(6, i):
+#         print(i, end=' ')
+# print()
+# print("Ответы для 20")
+# for i in range(1, 62):
+#     if fourth(6, i) and not(second(6, i)):
+#         print(i, end=' ')
+
+# with open() as f:
+#     a = f.readlines()
+# b = a.pop(0).split()
+# s = int(b[0])
+# n = int(b[1])
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+# a.sort()
+# max = 0
+# res = 0
+# sum = 0
+# for i in range(len(a)):
+#     if a[i] + sum < s:
+#         res += 1
+#         sum += a[i]
+#         max = a[i]
+#     else:
+#         sum -= max
+#         if sum + a[i] <= s:
+#             max = a[i]
+#         sum += max
+# print(res, max)
+
+# with open('P1.txt') as f:
+#     a = f.readlines()
+# m = a.pop(0).split(' ')
+# s = int(m[0])
+# n = int(m[1])
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+# a.sort()
+# max = 0
+# res = 0
+# sum = 0
+# for i in range(len(a)):
+#     if a[i] + sum <= s:
+#         res += 1
+#         sum += a[i]
+#         max = a[i]
+#     else:
+#         sum -= max
+#         if sum + a[i] <= s:
+#             max = a[i]
+#         sum += max
+# print(res, max)
+
+# with open('P5.txt') as f:
+#     a = f.readlines()
+# m = a.pop(0).split()
+# n = int(m[0])
+# k = int(m[1])
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+# a.sort(reverse=True)
+# counter = 0
+# discount_sum = 0.0
+# the_most_expensive = 0
+# print(a)
+# for i in range(len(a)):
+#     discount_sum += a[i] * 0.2
+#     counter += 1
+#     if counter == k:
+#         the_most_expensive = a[i]
+#         break
+# print(discount_sum, the_most_expensive)
+
+
+# with open('P2.txt') as f:
+#     a = f.readlines()
+# n = int(a.pop(0))
+# total_price = 0 #общая стоимость
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+#     if a[i] <= 150:
+#         total_price += a[i] #считает количество товаров, ст котор не прев 150
+# array = []
+# for i in range(len(a)):
+#     if a[i] > 150:
+#         array.append(a[i])
+# array.sort()
+# max_price = 0
+# price_with_discount = 0
+# for i in range(len(array) // 2):
+#     total_price += array[len(array) - i - 1]
+#     price_with_discount += array[i] * 0.8
+#     max_price = array[i]
+# price_with_discount = math.ceil(price_with_discount)
+# total_price = total_price + array[len(array) // 2] + price_with_discount
+# print(total_price, max_price)
+
+# with open('P4.txt') as f:
+#     a = f.readlines()
+# n = int(a.pop(0))
+#
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+# even = []
+# for i in range(len(a)):
+#     if a[i] % 2 == 0:
+#         even.append(a[i])
+#
+# a.clear()
+#
+# for i in range(len(even)):
+#     a.append(str(even[i]))
+#
+# for i in range(len(even)):
+#     even[i] = int(even[i])
+#
+# # print(a)
+# # print(even)
+#
+# count = 0
+# min_ans = 1000000000
+#
+# for i in range(len(even) - 1):
+#     for j in range(i + 1, len(even)):
+#         if str((even[i] + even[j]) // 2) in a:
+#             print((int(even[i]) + int(even[j])) // 2)
+#             count += 1
+#             min_ans = min(min_ans, (even[i] + even[j]) // 2)
+# print(count, min_ans)
+
+
+# count = 0
+# for a in 'ЖАЛЕЙ':
+#     for b in 'ЖАЛЕЙ':
+#         for c in 'ЖАЛЕЙ':
+#             for d  in 'ЖАЛЕЙ':
+#                 for f in 'ЖАЛЕЙ':
+#                     s = a + b + c + d + f
+#                     if s.count('Й') == 1 and s[0] != 'Й' and s[4] != 'Й' and not('ЙЕ') in s and not('ЕЙ') in s:
+#                         count += 1
+#                         print(s)
+# print(count)
+
+# n = 6 ** 203 + 5 * 6 ** 405 - 3 * 6 ** 144 + 76
+# c = ''
+# while n > 0:
+#     c += str(n % 6)
+#     n //= 6
+# summa = 0
+# for i in c:
+#     summa += int(i)
+# print(summa)
+
+a = []
+with open('17-1.txt') as f:
+    for line in f:
+        a.append(int(line))
+average = sum(a) // len(a)
+for i in range(len(a) - 3):
+    c = 0
+    if a[i] < average:
+        c += 1
+    if a[i + 1] < average:
+        c += 1
+    if a[i + 2] < average:
+        c += 1
+    if c 
+
+# print("x y z")
+# for x in range(2):
+#     for y in range(2):
+#         for z in range(2):
+#             f = ((not x) and z) or ((not x) and (not y) and (not z))
+#             if f:
+#                 print(x, y, z)
+
+# def f(n):
+#     str_n = str(n) + str(n % 10)
+#     bin_str = bin(int(str_n)).removeprefix('0b')
+#
+
+# import turtle as t
+#
+# k = 30
+# t.left(90)
+# t.tracer(0, 0)
+#
+# t.forward(9 * k)
+# t.right(90)
+#
+# for i in range(2):
+#     t.forward(3 * k)
+#     t.right(90)
+#     t.forward(3 * k)
+#     t.right(270)
+#
+# for i in range(2):
+#     t.forward(3 * k)
+#     t.right(90)
+#
+# t.forward(9 * k)
+#
+# t.up()
+#
+# for x in range(-20, 20):
+#     for y in range(-20, 20):
+#         t.goto(x * k, y * k)
+#         t.dot(4)
+#
+# t.update()
+# t.mainloop()
+
+# counter = 0
+# for x in "БАНКИР":
+#     for y in "БАНКИР":
+#         for z in "БАНКИР":
+#             for q in "БАНКИР":
+#                 for w in "БАНКИР":
+#                     for e in "БАНКИР":
+#                         string = x + y + z + q + w + e
+#                         if string.count('А') <= 1 and string.count('И') <= 1:
+#                             counter += 1
+# print(counter)
+
+# for i in range(31, 1000):
+#     s = i * "1"
+#     while "111" in s:
+#         s = s.replace("111", "2", 1)
+#         s = s.replace("222", '1', 1)
+#     if s == "211":
+#         print(i)
+#         break
+
+# n = 3 * 11 ** 58 + 15 * 11 ** 55 - 99 * 11 ** 18 + 125 * 11 ** 9 + 381
+# a = []
+# while n > 0:
+#     if n % 11 not in a:
+#         a.append(n % 11)
+#     n //= 11
+# print(len(a))
+
+# for A in range(0, 1000):
+#     flag = 1
+#     for x in range(1, 100):
+#         for y in range(1, 100):
+#             f = ((x ** 2 - 10 * x + 16) > 0) or ((y ** 2 - 10 * y + 21) > 0) or ((x * y) < (2 * A))
+#             if not f:
+#                 flag = 0
+#                 break
+#     if flag:
+#         print(A)
+#         break
+
+# def f(n):
+#     if n < 2:
+#         return 1
+#     if n >= 2 and n % 3 == 0:
+#         return f(n // 3) - 1
+#     if n >= 2 and n % 3 != 0:
+#         return f(n - 1) + 17
+#
+#
+# for i in range(0, 1000000):
+#     if f(i) == 110:
+#         print(i, f(i))
+
+
+# a = []
+# ans = 0
+# max_sum = -10 ** 10
+# with open("17 (1).txt") as f:
+#     for line in f:
+#         a.append(int(line))
+# average = sum(a) / len(a)
+# for i in range(len(a) - 2):
+#     counter = 0
+#     if a[i] < average:
+#         counter += 1
+#     if a[i + 1] < average:
+#         counter += 1
+#     if a[i + 2] < average:
+#         counter += 1
+#     if counter >= 2:
+#         s1 = str(a[i])
+#         s2 = str(a[i + 1])
+#         s3 = str(a[i + 2])
+#         if "1" in s1 and "1" in s2 and "1" in s3:
+#             ans += 1
+#             max_sum = max(max_sum, a[i] + a[i + 1] + a[i + 2])
+# print(ans, max_sum)
+
+# from functools import lru_cache
+#
+#
+# def moves(h):
+#     a, b = h
+#     return (a + 1, b), (a, b + 1), (a * 3, b), (a, b * 3)
+#
+#
+# @lru_cache(None)
+# def game(h):
+#     a, b = h
+#     if a + b >= 45:
+#         return 'W'
+#     if any(game(m) == 'W' for m in moves(h)):
+#         return 'P1'
+#     if any(game(m) == 'P1' for m in moves(h)):
+#         return 'B1'
+#     if all(game(m) == 'B1' for m in moves(h)):
+#         return 'P2'
+#     if all(game(m) == 'P2' or game(m) == 'P1' for m in moves(h)):
+#         return 'B2'
+#
+#
+# for i in range(1, 41):
+#     h = 4, i
+#     if game(h) == 'B1':
+#         print(i, game(h))
+
+# def f(x, y):
+#     if x == y:
+#         return 1
+#     if x > y:
+#         return 0
+#     if x < y:
+#         return f(x + 1, y) + f(x + 3, y) + f(x * 2, y)
+#
+# print(f(3, 9) * f(9, 12) * f(12, 20))
+
+# def is_prime(n):
+#     c = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             c += 1
+#             if n // i != i:
+#                 c += 1
+#     if c == 2:
+#         return 1
+#     else:
+#         return 0
+#
+# def f(n):
+#     s = 0
+#     for i in range(2, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             if is_prime(i):
+#                 s += i
+#             if n // i != i:
+#                 if is_prime(n // i):
+#                     s += (n // i)
+#     return s
+#
+#
+# cntr = 0
+# for i in range(499999, 0, -1):
+#     res = f(i)
+#     if cntr == 7:
+#         break
+#     if res != 0 and res % 10 == 0:
+#         print(i, res)
+#         cntr += 1
+
+# def is_prime(n):
+#     c = 0
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             c += 1
+#             if n // i != i:
+#                 c += 1
+#     if c == 2:
+#         return 1
+#     else:
+#         return 0
+#
+#
+# def f(n):
+#     a = []
+#     for i in range(1, int(n ** 0.5) + 1):
+#         if n % i == 0:
+#             if n // i != i:
+#                 if is_prime(i) and is_prime(n // i):
+#                     a.append(i)
+#                     a.append(n // i)
+#                     break
+#             if n // i == i:
+#                 if is_prime(i):
+#                     a.append(i)
+#                     a.append(i)
+#                     break
+#     a.sort()
+#     return a
+#
+#
+# for i in range(125697, 125722):
+#     q = f(i)
+#     if len(q) != 0:
+#         print(*q)
+

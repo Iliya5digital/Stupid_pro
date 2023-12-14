@@ -1,0 +1,1020 @@
+# with open('P4.txt') as f:
+#     a = f.readlines()
+# n = a.pop(0).split()
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+#
+# even = []
+# for i in range(len(a)):
+#     if a[i] % 2 == 0:
+#         even.append(int(a[i]))
+#
+# pair_count = 0
+# min_av = 10 ** 100
+#
+# for i in range(len(even) - 1):
+#     for j in range(i + 1, len(even)):
+#         a_s = (even[i] + even[j]) // 2
+#         if a_s in a:
+#             pair_count += 1
+#             min_av = min(min_av, a_s)
+#             print(even[i], even[j])
+# print(pair_count, min_av)
+
+# with open('P3.txt') as f:
+#     a = f.readlines()
+# n, m = a[0].split()
+# n = int(n)
+# m = int(m)
+# a.pop(0).split()
+#
+# first = m
+#
+# cntr = 0
+# max = 0
+#
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+#
+# a.sort()
+# for i in range(len(a)):
+#     if 310 <= a[i] <= 320:
+#         cntr += 1
+#         m -= a[i]
+#
+# for i in range(len(a)):
+#     if m - a[i] >= 0:
+#         m -= a[i]
+#         cntr += 1
+#         max = a[i]
+#     else:
+#         m += max
+#         if m - a[i] >= 0:
+#             max = a[i]
+#         m -= max
+# print(cntr, first - m)
+
+# with open('DZ1.txt') as f:
+#     a = f.readlines()
+#
+# m = a.pop(0).split()
+#
+# s = int(m[0])
+# n = int(m[1])
+#
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+#
+# a.sort()
+#
+# cntr = 0
+# max_ = 0
+# summa = 0
+#
+# for i in range(len(a)):
+#     if summa + a[i] <= s:
+#         cntr += 1
+#         max_ = max(max_, a[i])
+#         summa += a[i]
+#     else:
+#         summa -= max_
+#         if summa + a[i] <= s:
+#             max_ = a[i]
+#         summa += max_
+# print(cntr, max_)
+
+# with open('DZ3.txt') as f:
+#     a = f.readlines()
+# m = a.pop(0).split()
+# n = int(m[0])
+# k = int(m[1])
+# v = int(m[2])
+# for i in range(len(a)):
+#     a[i] = int(a[i])
+# a.sort(reverse=True)
+# min_win = 10 ** 10
+# min_prize = 10 ** 10
+# c_win = 0
+# c_prize = c_win
+# print(a)
+# # min_win = a[k - 1]
+# # min_prize = a[k + v - 1]
+# for i in range(len(a)):
+#     if c_win != k:
+#         c_win += 1
+#         min_win = min(min_win, a[i])
+#     if c_win >= k and c_prize != v:
+#         c_prize += 1
+#         min_prize = min(min_prize, a[i])
+# print(min_prize, min_win)
+
+# with open('DZ4.txt') as f:
+#     m = f.readlines()
+# a = m.pop(0).split()
+# n, k = int(a[0]), int(a[1])
+# for i in range(len(m)):
+#     m[i] = int(m[i])
+# m.sort(reverse=True)
+# the_best = m[0:k]
+# excell = sum(the_best) // len(the_best)
+# the_good = m[k:2 * k]
+# print(len(the_good))
+# good = sum(the_good) // len(the_good)
+# print(good, excell)
+
+
+# a = []
+# cntr = 0
+# max_sum = - 10 ** 10
+# with open('17-1 (1).txt') as f:
+#     for line in f:
+#         a.append(int(line))
+# average = sum(a) / len(a)
+# print(average)
+# for i in range(len(a) - 2):
+#     first = a[i]
+#     second = a[i + 1]
+#     third = a[i + 2]
+#     c = 0
+#     funf_c = 0
+#     if first < average:
+#         c += 1
+#     if second < average:
+#         c += 1
+#     if third < average:
+#         c += 1
+#     if c >= 2:
+#         if "5" in str(first):
+#             funf_c += 1
+#         if "5" in str(second):
+#             funf_c += 1
+#         if "5" in str(third):
+#             funf_c += 1
+#         if funf_c >= 2:
+#             cntr += 1
+#             summa = first + second + third
+#             max_sum = max(max_sum, summa)
+#             print(first, second, third, summa)
+# print(cntr, max_sum)
+
+# cntr = 0
+# for a in "жалей":
+#     for b in "жалей":
+#         for c in "жалей":
+#             for d in "жалей":
+#                 for e in "жалей":
+#                     s = a + b + c + d + e
+#                     if (s.count("й") == 1 or s.count("й") == 0) and s[0] != "й" \
+#                             and s[4] != "й" and not("йе" in s) and not('ей' in s):
+#                         cntr += 1
+# print(cntr)
+
+# print('x y z w')
+# for x in range(2):
+#     for y in range(2):
+#         for z in range(2):
+#             for w in range(2):
+#                 f = (w <= z) and ((y <= x) == (z <= y))
+#                 if f:
+#                     print(x, y, z, w)
+
+# def f(n):
+#     str_n = bin(n).removeprefix('0b')
+#     str_n = str_n + str_n[len(str_n) - 1]
+#     if int(str_n, 2) % 2 == 0:
+#         str_n = str_n + "0"
+#     else:
+#         str_n = str_n + "1"
+#     if int(str_n, 2) % 2 == 0:
+#         str_n = str_n + "0"
+#     else:
+#         str_n = str_n + "1"
+#     return int(str_n, 2)
+#
+#
+# for i in range(1, 1000):
+#     print(i, f(i))
+
+# import turtle as t
+#
+# t.tracer(0, 0)
+# t.left(90)
+# k = 20
+#
+# for i in range(11):
+#     t.forward(8 * k)
+#     t.left(120)
+#
+# t.up()
+#
+# for x in range(-20, 20):
+#     for y in range(-20, 20):
+#         t.goto(x * k, y * k)
+#         t.dot(2)
+#
+# t.update()
+# t.mainloop()
+
+# s = 84 * '9'
+# while "33333" in s or "999" in s:
+#     if "33333" in s:
+#         s = s.replace("33333", "99", 1)
+#     else:
+#         s = s.replace("999", "3", 1)
+# print(s)
+
+# n = 36 ** 10 + 6 ** 25 - 15
+# c = 0
+# while n > 0:
+#     if n % 6 == 0:
+#         c += 1
+#     n //= 6
+# print(c)
+
+# def f(n):
+#     if n < 4:
+#         return n - 1
+#     if n >= 4 and n % 3 == 0:
+#         return n + 2 * f(n - 1)
+#     if n >= 4 and n % 3 != 0:
+#         return f(n - 2) + f(n - 3)
+# print(f(25))
+
+# a = []
+# cntr = 0
+# max_summa = 0
+# with open('tup.txt') as f:
+#     for line in f:
+#         a.append(int(line))
+# average = sum(a) / len(a)
+# for i in range(len(a) - 1):
+#     if (a[i] < average or a[i + 1] < average) and (a[i] % 100 == 13 or a[i + 1] % 100 == 13):
+#         cntr += 1
+#         max_summa = max(max_summa, a[i] + a[i + 1])
+# print(cntr, max_summa)
+
+# def win(s):
+#     return s >= 165
+#
+# def first(s):
+#     return (win(s + 1) or win(2 * s)) and not(win(s))
+#
+# def second(s):
+#     return first(s + 1) and first(s + 2) and not win(s)
+#
+# def third(s):
+#     return (second(s + 1) or second(s + 2)) and not(win(s))
+
+# def func(s, f):
+#     if s == f:
+#         return 1
+#     if s > f:
+#         return 0
+#     if s < f:
+#         return func(s + 1, f) + func(s + 2, f) + func(s * 2, f)
+#
+#
+# print(func(3, 10) * func(10, 13))
+
+# a = []
+# c = 0
+# with open('P1a.txt') as file:
+#     for line in file:
+#         a.append(int(line))
+# for i in range(len(a) - 1):
+#     for j in range(i + 1, len(a)):
+#         if ((a[i] + a[j]) % 2 != 0) and ((a[i] * a[j]) % 13 == 0):
+#             c += 1
+# print(c)
+
+# a = []
+# c = 0
+# with open('P2a.txt') as f:
+#     for line in f:
+#         a.append(int(line))
+#
+# for i in range(len(a) - 1):
+#     for j in range(i + 1, len(a)):
+#         if (abs(j - i) >= 7) and (a[i] * a[j]) % 14 == 0:
+#             c += 1
+# print(c)
+
+# a = []
+# min_s = 10 ** 10000
+# with open('P3a.txt') as f:
+#     for line in f:
+#         a.append(int(line))
+# for i in range(len(a) - 1):
+#     for j in range(i + 1, len(a)):
+#         if abs(j - i) >= 5:
+#             min_s = min(min_s, a[i] ** 2 + a[j] ** 2)
+# print(min_s)
+
+# a = []
+# with open('DP1a.txt') as f:
+#     for line in f:
+#         a.append(int(line))
+# a.sort()
+# print(a)
+# ans = []
+# for i in range(0, len(a) - 1):
+#     for j in range(i + 1, len(a)):
+#         d = a[j] - a[i]
+#         a1 = a[i]
+#         progr = [a1]
+#         if 1 <= d <= 100:
+#             while True:
+#                 if (a1 + d) in a:
+#                     progr.append(a1 + d)
+#                     a1 = a1 + d
+#                 else:
+#                     ans.append(progr)
+#                     break
+# pr = []
+# for i in ans:
+#     pr.append(len(i))
+# print(max(pr))
+
+
+# delta = 10 ** 10
+# sm = 0
+# with open('P1a (1).txt') as f:
+#     n = int(f.readline())
+#     for i in range(n):
+#         a = f.readline().split()
+#         x, y = int(a[0]), int(a[1])
+#
+#         sm += max(x, y)
+#
+#         if abs(x - y) % 3 == 0 and abs(x - y) < delta:
+#             delta = abs(x - y)
+# with open('P1a (1).txt') as f:
+#     n = int(f.readline())
+#
+#     arr = []
+#     if sm % 3 == 0:
+#         print(sm)
+#     else:
+#         for i in range(n):
+#             a = f.readline().split()
+#             x, y = int(a[0]), int(a[1])
+#             if (sm - max(x, y) + min(x, y)) % 3 == 0:
+#                 arr.append(sm - max(x, y) + min(x, y))
+# for i in arr:
+#     print(i % 3, i, max(arr))
+
+# a = []
+# sm = 0
+# with open('P2a (1).txt') as f:
+#     for line in f:
+#         line = line.replace('\n', '')
+#         add = line.split()
+#         for i in range(len(add)):
+#             add[i] = int(add[i])
+#         add.sort()
+#         a.append(add)
+#         sm += max(add)
+# print(a)
+# answers = []
+# if sm % 8 == 0:
+#     print(sm)
+# else:
+#     for i in range(len(a)):
+#         w = a[i]
+#         if (sm - w[2] + w[1]) % 8 == 0:
+#             answers.append(sm - w[2] + w[1])
+#         if (sm - w[2] + w[0]) % 8 == 0:
+#             answers.append(sm - w[2] + w[0])
+# print(answers)
+# print(max(answers))
+
+# with open('P3a (1).txt') as f:
+# for line in f:
+#         line = line.replace('\n', '')
+#         add = line.split()
+#         for i in range(len(add)):
+#             add[i] = int(add[i])
+#         add.sort()
+#         a.append(add)
+#         sm += max(add)
+
+# print('x y z w')
+# for x in range(2):
+#     for y in range(2):
+#         for z in range(2):
+#             for w in range(2):
+#                 f = (x <= y) and (y <= z) and (z <= w)
+#                 if f:
+#                     print(x, y, z, w)
+
+
+# def f(n):
+#     str_n = bin(n).removeprefix('0b')
+#     for t in range(2):
+#         sm = 0
+#         for i in str_n:
+#             sm += int(i)
+#         str_n = str_n + str(sm % 2)
+#     return int(str_n, 2)
+#
+#
+# c = 0
+# for i in range(1000):
+#     if f(i) < 100:
+#         c += 1
+#     else:
+#         break
+# print(c)
+
+# import turtle as t
+#
+# t.left(90)
+# t.tracer(0, 0)
+# k = 20
+#
+# for i in range(15):
+#     t.forward(15 * k)
+#     t.right(120)
+#
+# t.up()
+#
+# for x in range(-20, 20):
+#     for y in range(-20, 20):
+#         t.goto(x * k, y * k)
+#         t.dot(2)
+
+
+# t.mainloop()
+# t.update()
+
+# cntr = 0
+# for a in "ШАРЛТН":
+#     for b in "ШАРЛТН":
+#         for c in "ШАРЛТН":
+#             for d in "ШАРЛТН":
+#                 for e in "ШАРЛТН":
+#                     for f in "ШАРЛТН":
+#                         for g in "ШАРЛТН":
+#                             for h in "ШАРЛТН":
+#                                 s = a + b + c + d + e + f + g + h
+#                                 # print(s)
+#                                 if s.count("Ш") == 1 and s.count("А") == 3 and s.count("Р") == 1 and s.count("Л") == 1 and s.count("Т") == 1\
+#                                     and s.count("Н") == 1:
+#                                     if ("АА" in s) or ("ШШ" in s) or ("РР" in s) or ("ЛЛ" in s) or ("ТТ" in s) or ("НН" in s):
+#                                         cntr += 1
+# print(cntr)
+
+
+# for i in range(201, 300):
+#     s = i * '8'
+#     while ('555' in s) or ('888' in s):
+#         s = s.replace('555', '8', 1)
+#         s = s.replace('888', '55', 1)
+#     print(s, i)
+#     break
+# print(s)
+# break
+# if s.count('5') == s.count('8'):
+#     print(i, s)
+# break
+
+# for x in range(15):
+#     for y in range(17):
+#         n = 1 * 15 ** 4 + 2 * 15 ** 3 + 3 * 15 ** 2 + x * 15 ** 1 + 5 * 15 ** 0
+#         m = 6 * 17 ** 3 + 7 * 17 ** 2 + y * 17 ** 1 + 9 * 17 ** 0
+#         if ((n + m) % 131) == 0:
+#             print((n + m) / 131, x, y)
+
+# ЗАДАЧА3(ТУПОЙ)
+# a = [10, 30, 50, 40, 60, 70, 90, 80]
+# max_pr = 0
+# n1 = 0
+# n2 = 0
+# for i in range(len(a) - 1):
+#     for j in range(i + 1, len(a)):
+#         if a[i] * a[j] > max_pr and (a[i] + a[j]) % 60 == 0:
+#             max_pr = a[i] * a[j]
+#             n1 = a[i]
+#             n2 = a[j]
+# print(n1, n2)
+
+#ЭФФЕКТИВНЫЙ
+# s = [10, 30, 50, 40, 60, 70, 90, 80]
+# d = [0] * 60
+#
+# max_s = 0
+# for x in s:
+#     if x * d[(60 - x % 60) % 60] > max_s:
+#         max_s = x * d[(60 - x % 60) % 60]
+#         p1 = x
+#         p2 = d[(60 - x % 60) % 60]
+#
+#     if x > d[x % 60]:
+#         d[x % 60] = x
+#
+# print(p1, p2)
+
+#ЗАДАЧА4(ТУПОЙ)
+# s = [75, 123, 5, 40, 15, 3, 65, 80]
+# max_sum = 0
+# p1, p2 = 0, 0
+# for i in range(len(s) - 1):
+#     for j in range(i + 1, len(s)):
+#         if (abs(s[i] - s[j])) % 60 == 0:
+#             if (s[i] + s[j]) > max_sum:
+#                 max_sum = s[i] + s[j]
+#                 p1 = s[i]
+#                 p2 = s[j]
+# print(p1, p2)
+
+#ЭФФЕКТИВНЫЙ
+# s = [75, 123, 5, 40, 15, 3, 65, 80]
+# max_s = 0
+# d = [0] * 60
+# for x in s:
+#     if x + d[x % 60] > max_s:
+#         max_s = x + d[x % 60]
+#         p1 = x
+#         p2 = d[x % 60]
+#     if x > d[x % 60]:
+#         d[x % 60] = x
+#
+# print(p1, p2)
+
+#ЗАДАЧА8(ТУПОЙ)
+# s = [30, 30, 150, 20, 40, 100]
+# cntr = 0
+# for i in range(len(s) - 1):
+#     for j in range(i + 1, len(s)):
+#         if (s[i] + s[j]) % 60 == 0 and ((s[i] > 40) or (s[j] > 40)):
+#             cntr += 1
+# print(cntr)
+
+#ЭФФЕКТИВНЫЙ
+
+
+
+# f = open('P1a (2).txt')
+# n = int(f.readline())
+# s = [0]
+# for i in range(n):
+#     pair = [int(x) for x in f.readline().split()]
+#     s = [a + b for a in s for b in pair]
+# print(max(x for x in s if x % 3 == 0)) ЭТО тупой метод
+
+# f = open('P1b.txt')
+# n = int(f.readline())
+# s = [0]
+# for i in range(n):
+#     pair = [int(x) for x in f.readline().split()]
+#     s = [a + b for a in pair for b in s]
+#     s = {x % 3: x for x in sorted(s)}.values()
+# print(max(x for x in s if x % 3 == 0)) Это очень умный метод
+
+# f = open('P2b.txt')
+# n = int(f.readline())
+# s = [0]
+# for i in range(n):
+#     triple = [int(x) for x in f.readline().split()]
+#     s = [a + b for a in triple for b in s]
+#     s = {x % 8: x for x in sorted(s)}.values()
+# f.close()
+# print(max(x for x in s if x % 8 == 0))
+
+# f = open('P3b.txt')
+# n = int(f.readline())
+# s = [0]
+# for i in range(n):
+#     pair = [int(x) for x in f.readline().split()]
+#     s = [a + b for a in pair for b in s]
+#     s = {x % 10: x for x in sorted(s)}.values()
+# print(max(x for x in s if x % 10 != 5))
+
+# #27, Тип2, 1
+# n = 10
+# s = [1, 3, 5, 4, 6, 7, 9, 10, 12, 11]
+# summa = 0
+# for i in range(len(s) - 8):
+#     for j in range(i + 8, len(s)):
+#         summa = max(summa, s[i] + s[j])
+# print(summa) #тупой
+#
+# n = 10
+# data = [1, 3, 5, 4, 6, 7, 9, 10, 12, 11]
+# max_x = 0
+# sum_max = 0
+# for i in range(8, n):
+#     max_x = max(max_x, data[i - 8])
+#     sum_max = max(sum_max, max_x + data[i])
+# print(sum_max) оптимизированный
+
+# #27, Тип2, 2
+# n = 12
+# a = [1, 5, 5, 8, 9, 4, 12, 14, 6, 7, 9, 8]
+# cntr = 0
+# for i in range(len(a) - 10):
+#     for j in range(i + 10, len(a)):
+#         if a[i] * a[j] % 10 == 0:
+#             cntr += 1
+# print(cntr) тупой
+#
+# n = 12
+# a = [1, 5, 5, 8, 9, 4, 12, 14, 6, 7, 9, 8]
+# cntr = 0
+# c10 = 0
+# c5 = 0
+# c2 = 0
+# c = 0
+# res = 0
+# for i in range(10, len(a)):
+#     if a[i - 10] % 10 == 0:
+#         c10 += 1
+#     elif a[i - 10] % 5 == 0:
+#         c5 += 1
+#     elif a[i - 10] % 2 == 0:
+#         c2 += 1
+#     c += 1
+#     if a[i] % 10 == 0:
+#         res += c + c2 + c5 + c10
+#     elif a[i] % 5 == 0:
+#         res += c10 + c2
+#     elif a[i] % 2 == 0:
+#         res += c10 + c5
+#     else:
+#         res += c10
+# print(res) оптимизированный
+
+# 27, Тип2, 4
+# n = 8
+# data = [1, 3, 5, 4, 6, 7, 9, 8]
+# c = 0
+# for i in range(len(data) - 6):
+#     for j in range(i + 6, len(data)):
+#         if (data[i] + data[j]) % 2 == 0:
+#             c += 1
+# print(c) тупой
+
+# n = 8
+# data = [1, 3, 5, 4, 6, 7, 9, 8]
+# c1 = 0
+# c0 = 0
+# ans = 0
+# for i in range(6, len(data)):
+#     if data[i - 10] % 2 == 0:
+#         c0 += 1
+#     else:
+#         c1 += 1
+#
+#     if data[i] % 2 == 0:
+#         ans += c0
+#     else:
+#         ans += c1
+# print(ans) оптимизированный
+
+# 27, Тип2, 6
+# n = 8
+# a = [2, 6, 5, 4, 6, 7, 9, 8]
+# c = 0
+# for i in range(len(a) - 6):
+#     for j in range(i + 6, len(a)):
+#         if abs(a[i] - a[j]) % 3 == 0:
+#             c += 1
+# print(c) тупой
+
+# n = 8
+# a = [2, 6, 5, 4, 6, 7, 9, 8]
+# c0 = c1 = c2 = res = 0
+# for i in range(6, len(a)):
+#     if a[i - 6] % 3 == 1:
+#         c1 += 1
+#     if a[i - 6] % 3 == 2:
+#         c2 += 1
+#     if a[i - 6] % 3 == 0:
+#         c0 += 1
+#     if a[i] % 3 == 1:
+#         res += c1
+#     if a[i] % 3 == 2:
+#         res += c2
+#     if a[i] % 3 == 0:
+#         res += c0
+# print(res) оптимизированный
+
+# n = 8
+# a = [1, 6, 5, 5, 4, 6, 7, 9, 8]
+# max_1 = max_0 = 0
+# max_res = 0
+# for i in range(6, len(a)):
+#     if a[i - 6] % 2 == 0:
+#         max_0 = max(max_0, a[i - 6])
+#     else:
+#         max_1 = max(max_1, a[i - 6])
+#     if a[i] % 2 == 0:
+#         max_res = max(max_0 + a[i], max_res)
+#     else:
+#         max_res = max(max_1 + a[i], max_res)
+# print(max_res) оптимизированный
+
+# f = open('P1b (1).txt')
+# n = int(f.readline())
+# k13_0 = k_13_1 = k_0 = k_1 = 0
+# # a = [int(x) for x in f.readlines()]
+# # c = 0
+# # for i in range(len(a) - 1):
+# #     for j in range(i + 1, len(a)):
+# #         if (a[i] + a[j]) % 2 == 1 and (a[i] * a[j]) % 13 == 0:
+# #             c += 1
+# # print(c)
+# for i in range(n):
+#     x = int(f.readline())
+#     if x % 13 == 0 and x % 2 == 0:
+#         k13_0 += 1
+#     if x % 13 == 0 and x % 2 == 1:
+#         k_13_1 += 1
+#     if x % 13 != 0 and x % 2 == 0:
+#         k_0 += 1
+#     if x % 13!= 0 and x % 2 == 1:
+#         k_1 += 1
+# print(k13_0 * k_13_1 + k13_0 * k_1 + k_13_1 * k_0)
+
+# f = open('P2b (1).txt')
+# n = int(f.readline())
+# # res = 0
+# # a = [int(x) for x in f.readlines()]
+# # for i in range(len(a) - 7):
+# #     for j in range(i + 7, len(a)):
+# #         if a[i] * a[j] % 14 == 0:
+# #             res += 1
+# # print(res)
+# k14 = k7 = k2 = k = 0
+# res = 0
+# a = [int(x) for x in f.readlines()]
+# for i in range(7, n):
+#     if a[i - 7] % 14 == 0:
+#         k14 += 1
+#     elif a[i - 7] % 7 == 0:
+#         k7 += 1
+#     elif a[i - 7] % 2 == 0:
+#         k2 += 1
+#     k += 1
+#     if a[i] % 14 == 0:
+#         res += k
+#     elif a[i] % 7 == 0:
+#         res += k2 + k14
+#     elif a[i] % 2 == 0:
+#         res += k7 + k14
+#     else:
+#         res += k14
+# print(res)
+
+# f = open('P3b (1).txt')
+# n = int(f.readline())
+# a = [int(x) for x in f.readlines()]
+# # min_ans = 10 ** 10000
+# # for i in range(len(a) - 5):
+# #     for j in range(i + 5, len(a)):
+# #         min_ans = min(min_ans, a[i] ** 2 + a[j] ** 2)
+# # print(min_ans)
+# minimum_x = 199 ** 1000
+# min_square = 199 ** 1000
+# for i in range(5, len(a)):
+#     minimum_x = min(minimum_x, a[i - 5])
+#     min_square = min(min_square, (a[i] ** 2 + minimum_x ** 2) )
+# print(min_square)
+
+# f = open('DP1b.txt')
+# n = int(f.readline())
+# a6 = []
+# a2 = []
+# a3 = []
+# a = []
+# for i in range(n):
+#     x = int(f.readline())
+#     if x % 6 == 0:
+#         a6 += [x]
+#     elif x % 3 == 0:
+#         a3 += [x]
+#     elif x % 2 == 0:
+#         a2 += [x]
+#     else:
+#         a += [x]
+# a.sort()
+# a6.sort()
+# a2.sort()
+# a3.sort()
+# # print(a, a3, a2, a6)
+# max_ans = 0
+# ar = [a[-1], a[-2], a6[-1],  a6[-2], a2[-1],  a2[-2], a3[-1], a3[-2]]
+# print(ar)
+# for i in range(len(ar) - 1):
+#     for j in range(i + 1, len(ar)):
+#         if ar[i] * ar[j] % 6 == 0:
+#             max_ans = max(ar[i] * ar[j], max_ans)
+# print(max_ans)
+# max_ans = 0
+# for i in range(len(a)):
+#     for j in range(len(a6)):
+#         if a[i] * a6[j] % 6 == 0:
+#             max_ans = max(max_ans, a[i] * a6[j])
+# for i in range(len(a3)):
+#     for j in range(len(a2)):
+#         if (a3[i] * a2[j]) % 6 == 0:
+#             max_ans = max(max_ans, a3[i] * a2[j])
+# for i in range(len(a3)):
+#     for j in range(len(a6)):
+#         if a3[i] * a6[j] % 6 == 0:
+#             max_ans = max(max_ans, a3[i] * a6[j])
+# for i in range(len(a2)):
+#     for j in range(len(a6)):
+#         if a2[i] * a6[j] % 6 == 0:
+#             max_ans = max(max_ans, a2[i] * a6[j])
+# print(max_ans)
+
+# f = open('DP2a.txt')
+# n = int(f.readline())
+# k = [0]
+# for i in range(n):
+#     x = int(f.readline())
+#     ost = x % 12
+#     k[ost] += 1
+# print(k[0] * (k[0] - 1) // 2 + )
+# for i in range
+
+# print('x y z w')
+# for x in range(2):
+#     for y in range(2):
+#         for z in range(2):
+#             for w in range(2):
+#                 f = (x and (not y)) or (y == z) or (not w)
+#                 if not f:
+#                     print(x, y, z, w)
+
+# import turtle as t
+#
+# k = 10
+# t.left(90)
+# t.tracer(0, 0)
+#
+# t.right(315)
+# for i in range(7):
+#     t.forward(16 * k)
+#     t.right(45)
+#     t.forward(8 * k)
+#     t.right(135)
+# t.up()
+#
+# for x in range(-40, 40):
+#     for y in range(-40, 40):
+#         t.goto(x * k, y * k)
+#         t.dot(2)
+#
+# t.update()
+# t.mainloop()
+
+# for n in range(4, 300):
+#     s = '3' + '5' * n
+#     while ('25' in s) or ('355' in s) or ('555' in s):
+#         if '25' in s:
+#             s = s.replace('25', '3', 1)
+#         if '355' in s:
+#             s = s.replace('355', '52', 1)
+#         if '555' in s:
+#             s = s.replace('555', '23', 1)
+#     summa = 0
+#     for i in s:
+#         summa += int(i)
+#     if summa == 27:
+#         print(n, summa)
+
+# for x in range(15):
+#     n = 9 * 15 ** 7 + 7 * 15 ** 6 + 9 * 15 ** 5 + 6 * 15 ** 4 + 8 * 15 ** 3 + x * 15 ** 2 + 1 * 15 ** 1 + 3 * 15 ** 0
+#     m = 7 * 15 ** 4 + x * 15 ** 3 + 2 * 15 ** 2 + 1 * 15 ** 1 + 3 * 15 ** 0
+#     if (n + m) % 14 == 0:
+#         print((n + m) // 14, x, n, m)
+
+# for A in range(0, 100):
+#     flag = 1
+#     for x in range(0, 100):
+#         f = ((x & 39) == 0) or ((x & 11 == 0) <= (x & A != 0))
+#         if not f:
+#             flag = 0
+#     if flag:
+#         print(A)
+
+# def f(n):
+#     if n >= 2025:
+#         return n
+#     if n < 2025:
+#         return n + 3 + f(n + 3)
+#
+#
+# print(f(23) - f(21))
+
+# a = []
+# with open('17.txt') as file:
+#     for line in file:
+#         a.append(int(line))
+#
+# cntr = 0
+# max_sum = -10 ** 100
+# min_three = 10 ** 1000
+# for i in range(len(a)):
+#     if len(str(a[i])) == 3:
+#         min_three = min(min_three, a[i])
+#
+# for i in range(len(a) - 1):
+#     n1 = str(a[i])
+#     n2 = str(a[i + 1])
+#     cntr_len = 0
+#     if len(n1) == 3:
+#         cntr_len += 1
+#     if len(n2) == 3:
+#         cntr_len += 1
+#     if cntr_len == 1:
+#         print(n1, n2, (a[i] + a[i + 1]) % min_three)
+#     # if cntr_len == 1:
+#     #     if (a[i] + a[i + 1]) % min_three == 0:
+#     #         cntr += 1
+#     #         max_sum = max(max_sum, a[i] + a[i + 1])
+# print(cntr, max_sum)
+
+# def win(s):
+#     return s >= 78
+#
+#
+# def first(s):
+#     return (win(s + 1) or win(s + 4) or win(s * 4)) and not (win(s))
+#
+#
+# def second(s):
+#     return first(s + 1) and first(s + 4) and first(s * 4) and not (win(s))
+#
+#
+# def third(s):
+#     return (second(s + 1) or second(s + 4) or second(s * 4)) and not (win(s))
+#
+#
+# def fourth(s):
+#     return (third(s + 1) or first(s + 1)) and (third(s + 4) or first(s + 4)) and (third(s * 4) or first(s * 4)) and not win(s)
+#
+#
+# # for i in range(1, 38):
+# #     if third(i) and not(first(i)):
+# #         print(i, end=' ')
+#
+# for i in range(1, 38):
+#     if fourth(i) and not second(i):
+#         print(i, end = ' ')
+
+# def f(x, y):
+#     if x == y:
+#         return 1
+#     if x > y or x == 13:
+#         return 0
+#     if x < y:
+#         return f(x + 1, y) + f(x + 2, y) + f(x * 3, y)
+#
+#
+# print(f(3, 8) * f(8, 18))
+
+# with open('24.txt') as file:
+#     s = file.readline()
+# a = []
+# max_len = -10 ** 10
+# for i in 'QRS':
+#     for j in 'QRS':
+#         for k in 'QRS':
+#             st = i + j + k
+#             a.append(st)
+# ws = ''
+# cntr = 0
+# for i in range(len(s)):
+#     ws += s[i]
+#     cntr += 1
+#     last_three = ws[-3::]
+#     # print(last_three)
+#     if last_three in a:
+#         max_len = max(max_len, cntr - 1)
+#         cntr = 0
+#         ws = s[i]
+# print(max_len)
+
+
+# from fnmatch import fnmatch
+#
+# for i in range(1200381, 10 ** 8 + 1, 273):
+#     if fnmatch(str(i), "12??36*1"):
+#         print(i, i / 273)
+
+# f = open('27B.txt')
+# n = int(f.readline())
+# k = int(f.readline())
+# a = []
+# for line in f:
+#     a.append(int(line))
+# max_x = 0
+# max_sum = 0
+# for i in range(25, len(a)):
+#     max_x = max(max_x, a[i - k])
+#     max_sum = max(max_sum, max_x + a[i])
+# print(max_sum)
+#

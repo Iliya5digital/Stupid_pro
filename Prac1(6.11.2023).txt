@@ -1,0 +1,462 @@
+program t1; 
+
+uses Math;
+
+type vector = array[integer] of char;
+const N = 15;
+const MAXINT = 32767;
+var cntr_real_part: integer;
+    arr_add: char;
+    arr: vector;
+    flag_for_char: boolean; //flag для подсчёта char, образующих символ
+    trash: integer;
+    code, base, i, curr_base, curr_digit: integer; {input_base - сс числа, вводоимого пользователем}
+    sign, s: char;
+    flag_base: boolean; //flag для сс;
+    total_result, epsilon: double;
+    digit_cntr: integer;
+    num, num_part_real: double; //наше вещественное число
+    intenal_sign: char; //знак числа, которое вводится через коммандную строку      
+    digits_for_e: integer;
+    flag_for_finish: boolean = False; //флаг для проверки слова 'finish'
+    flag_for_total_result: boolean;  // флаг для того, чтоб понять какой знак у total total_result
+    flag_for_comments: boolean = False;
+    count_prog_iteration: integer;
+    flag_for_integer_part: boolean = False;
+    flag_for_float_part: boolean = False; //проверка на количество char-ов в digit-е
+
+{процедуру, которую мы используем, если встречаем комментарии}
+procedure case_comment();
+var c: char;
+begin
+    repeat
+        read(c);
+    until (EOLn)
+end;
+
+{перевод из 10-й в 16-юю сс}
+procedure from_any_to_hex(number: integer);
+type vector = array[integer] of char;
+var ch1, ch2: integer;
+        mas_of_dec_to_hex: vector;
+        piece: char;
+        i: integer;
+    char_ch1, char_ch2: char;
+begin
+    piece := '1';
+
+    for i := 1 to 9 do begin 
+        mas_of_dec_to_hex[i] := piece;
+        piece := succ(piece);
+        end;
+
+    piece := 'a';
+
+    for i := 10 to 15 do begin
+        mas_of_dec_to_hex[i] := piece;
+        piece := succ(piece);
+    end;
+
+    if number = 0 then
+        write('00', ' ');
+    if (1 <= number) and (number <= 15) then
+        write('0', mas_of_dec_to_hex[number], ' ');
+    if number > 15 then begin
+        ch1 := number mod 16;
+        char_ch1 := mas_of_dec_to_hex[ch1];
+        if ch1 = 0 then char_ch1 := '0';
+        number := number div 16;
+        ch2 := number mod 16;
+        char_ch2 := mas_of_dec_to_hex[ch2];
+        if ch2 = 0 then char_ch2 := '0';
+        write(char_ch2, char_ch1, ' ');
+    end;
+end;
+
+{подсчёт количество цифр при переводе(точность)}
+function e_count_digit(b: integer; eps: double): integer;
+    var r: double;
+begin
+    r := Ln(1 / eps) / Ln(b);
+    e_count_digit := trunc(r) + 1;
+end;
+
+{ставит пробелы при выводе}
+procedure space_bar(s: integer);
+    var cntr, i: integer;
+begin
+cntr := 0;
+    repeat
+        s := s div 10;
+        cntr := cntr + 1;
+    until(s = 0);
+    for i := 1 to (6 - cntr) do 
+        write(' ');
+end;
+
+
+function char_to_digit(a: vector; key: char; piece: integer): integer;
+    var i: integer;
+begin
+    if key = '0' then
+        char_to_digit := 0
+    else begin
+        for i := 1 to 15 do begin
+            if a[i] = key then begin
+                char_to_digit := i
+            end;
+        end;
+    end;
+end;
+
+{возведение в степень}
+function pow(n: integer; degree: integer): integer;
+    var i, ans: integer;
+begin
+    ans := 1;
+    for i := 1 to degree do
+        ans := ans * n; 
+    pow := ans;
+end;
+
+{процедура вывода, с переводом числа}
+procedure output_with_conversion(accuracy, b: integer; num: double); //accuracy - точность для вещ части, b - основание СС
+    var copy, n, del_cntr, i, digit: integer; // del_cntr - количество делений на СС
+        float_part, temporary_float_part: double;
+        temporary_int_part: integer;
+
+begin   
+    del_cntr := 0;
+    n := trunc(num); // нашли целую часть нашего числа
+    float_part := frac(num); //дробная часть нашего числа
+    {подсчёт количества делений числа на СС}
+    copy := n;
+    repeat 
+        copy := copy div b;
+        del_cntr := del_cntr + 1;
+    until(copy = 0);
+    
+    copy := n;
+    del_cntr := del_cntr - 1;
+
+    repeat
+        digit := copy div (pow(b, del_cntr));
+        from_any_to_hex(digit);
+        copy := copy - digit * pow(b, del_cntr);
+        del_cntr := del_cntr - 1;
+    until(del_cntr = -1);   
+
+    write('. ');
+    
+    for i := 1 to accuracy do begin
+        temporary_float_part := float_part * b;
+        temporary_int_part := trunc(temporary_float_part);
+        from_any_to_hex(temporary_int_part);
+        float_part := frac(temporary_float_part);
+    end;
+    
+    
+end;
+
+{ТЕЛО ПРОГРАММЫ}
+
+begin
+    intenal_sign := '+';
+    count_prog_iteration := 0;
+    flag_for_char := False;
+    
+    {заполнение массива arr, чтобы получить значение char в 10-й СС}
+    arr_add := '1';
+
+    for i := 1 to 9 do begin 
+        arr[i] := arr_add;
+        arr_add := succ(arr_add);
+        end;
+
+    arr_add := 'a';
+
+    for i := 10 to 15 do begin
+        arr[i] := arr_add;
+        arr_add := succ(arr_add);
+    end;
+
+    flag_base := False;
+    curr_base := 0;
+    total_result := 0;
+    digit_cntr := 0;
+    cntr_real_part := 0;
+    num_part_real := 0;
+
+    if ParamCount < 2 then begin
+        writeln('Неправильные параметры входной строки');
+        Halt();
+    end;
+
+    val(ParamStr(1), epsilon, code); {преобразование эпсилон в real}
+
+    if (epsilon > 1) or (epsilon < 0) then begin
+        writeln('Неправильные параметры входной строки');
+        Halt();
+    end;
+
+    for i := 2 to ParamCount do begin  {проверка введённых СС}
+        val(ParamStr(i), base, code);
+         if (base >= 257) and (base <= 2) then begin
+           writeln('Ошибка');
+           Halt();
+         end;
+        end;
+
+    while (not EOF) do begin
+
+        {определяем, какой знак получаем на вход}
+        repeat
+            read(s);
+            if (s = ';') and (count_prog_iteration = 0) then begin
+                flag_for_comments := True;
+                writeln('Ошибка! Неверные входные данные');
+                writeln(total_result);
+                Halt();
+            end; 
+
+            if (s = ';') and (count_prog_iteration <> 0) then begin
+                flag_for_comments := True;
+                break;
+            end;
+
+            if s = 'f' then begin
+                flag_for_finish := True;
+                break;
+            end;
+
+        until ((s = '+') or (s = '-') or (s = '*') or (s = '/'));
+
+        {если флаг остановки поднят, то выходим из цикла}
+        if (flag_for_finish) and (count_prog_iteration = 0) then begin
+            writeln('Программа не выполнена ни разу');
+            writeln(total_result);
+            Halt();
+        end;
+        
+        if (flag_for_finish = True) then break;
+
+        if not flag_for_comments then sign := s;
+
+        {считывание значения сс}
+        repeat
+
+            if flag_for_comments then begin
+                break;
+            end;
+
+            read(s);
+
+            if (s = ';') and (count_prog_iteration = 0)  then begin
+                writeln('Программа не выполнена ни разу');
+                flag_for_comments := True;
+                Halt();   
+            end 
+            else if (s = ';') and (count_prog_iteration <> 0) then begin
+                flag_for_comments := True;
+                break;
+            end;
+
+            if s in ['0'..'9'] then begin
+                    val(s, curr_digit, code);
+                    if flag_base then
+                        curr_base := curr_base * 10 + curr_digit
+            else 
+                begin
+                    curr_base := curr_digit;
+                    flag_base := True;
+                end;
+            end;
+        until(s = ':'); 
+
+        {считываем число, а именно целую часть}
+        repeat
+            if flag_for_comments then begin
+                break;
+            end;
+
+            read(s);
+
+            if (s = ';') and (count_prog_iteration = 0) and (flag_for_char) then begin
+                writeln('Программа не выполнена ни разу');
+                writeln(total_result);
+                Halt();   
+            end;
+            
+            if (s = ';') and (count_prog_iteration = 0) and (not flag_for_char) then begin
+                flag_for_comments := True;
+                break;
+            end;
+
+            if (s = ';') and (count_prog_iteration <> 0) and (not flag_for_char) then begin
+                flag_for_comments := True;
+                break;
+            end;
+
+            if (s = ';') and (not flag_for_char) then begin
+                flag_for_comments := True;
+                writeln('Ошибка: неправильно введены цифры числа');
+                flag_for_integer_part := True;
+                break;
+            end;
+
+            if s = '-' then 
+                intenal_sign := '-';
+                
+            if ((s in ['0'..'9']) or (s in ['a'..'f'])) and (flag_for_char = False) then begin
+                curr_digit := char_to_digit(arr, s, trash);
+                flag_for_char := True;
+                digit_cntr := digit_cntr + 1;
+                end
+            else begin
+                if ((s in ['0'..'9']) or (s in ['a'..'f'])) and (flag_for_char = True) then begin
+                    curr_digit := curr_digit * 16 + char_to_digit(arr, s, trash);
+                    if curr_digit >= curr_base then begin
+                        writeln('Ошибка! Полученная цифра не удовлетворяет данной системе счисления');
+                        Halt();
+                    end;
+                    flag_for_char := False;
+                    num := num * curr_base + curr_digit; 
+                    curr_digit := 0;
+                    end;
+                end;
+        until(s = '.');
+
+        {если у нас было введено более одного числа, и оно из-за комментраиев неверно,
+        то мы прерываем программу и выводим total_result, который удалось получить}
+        if flag_for_integer_part then break;
+
+        {проверка на ошибки: нечётное количество char-ов
+        если у нас 0-я итерация, т.е первая строчка вводимых данных, то выводим ошибку, иначе завершаем программу}
+        if (flag_for_char = True) then begin
+            num := 0;
+            flag_for_char := False;
+            if (count_prog_iteration = 0) then begin
+                writeln('Ошибка! Нечётное число char, нельзя получить отдельные digits');
+                writeln(total_result);
+                Halt();
+            end
+            else break;
+        end;
+
+        {далее считываем число после точки}
+        repeat
+            if flag_for_comments then begin
+                break;
+            end;
+
+            read(s);
+
+            if (s = ';') and (count_prog_iteration = 0) and (flag_for_char) then begin
+                writeln('Программа не выполнена ни разу');
+                writeln(total_result);
+                Halt();   
+            end;
+            
+            if (s = ';') and (count_prog_iteration = 0) and (not flag_for_char) then begin
+                flag_for_comments := True;
+                break;
+            end;
+
+            if (s = ';') and (count_prog_iteration <> 0) and (not flag_for_char) then begin
+                flag_for_comments := True;
+                break;
+            end;
+            
+            if (s = ';') and (not flag_for_char) then begin
+                flag_for_comments := True;
+                writeln('Ошибка: неправильно введены цифры числа');
+                flag_for_float_part := True;
+                break;
+            end;
+
+            if ((s in ['0'..'9']) or (s in ['a'..'f'])) and (flag_for_char = False) then begin
+                curr_digit := char_to_digit(arr, s, trash);
+                flag_for_char := True;
+                end
+            else begin
+                if ((s in ['0'..'9']) or (s in ['a'..'f'])) and (flag_for_char = True) then begin
+                    curr_digit := curr_digit * 16 + char_to_digit(arr, s, trash);
+                    if curr_digit >= curr_base then begin
+                        writeln('Ошибка! Полученная цифра не удовлетворяет данной системе счисления');
+                        Halt();
+                    end;
+                    cntr_real_part := cntr_real_part + 1;
+                    flag_for_char := False;
+                     num_part_real := num_part_real + curr_digit / pow(curr_base, cntr_real_part);
+                    end;
+                end;
+        until(EOLn);
+
+        if flag_for_float_part then break;
+
+        {проверка на ошибки: нечётное количество char-ов
+        если у нас 0-я итерация, т.е первая строчка вводимых данных, то выводим ошибку, иначе завершаем программу}
+        if (flag_for_char = True) then begin
+            num := 0;
+            flag_for_char := False;
+            if (count_prog_iteration = 0) then begin
+                writeln('Ошибка! Нечётное число char, нельзя получить отдельные digits');
+                writeln(total_result);
+                Halt();
+            end
+            else break;
+        end;
+
+        num := num + num_part_real;
+
+        if intenal_sign = '-' then
+            num := num * (-1);
+
+        if sign = '+' then 
+        total_result := total_result + num
+        else 
+            if sign = '-' then 
+            total_result := total_result - num
+            else
+                if sign = '*' then
+                total_result := total_result * num
+                else 
+                  if sign = '/' then total_result := total_result / num;
+//        writeln(num, ' знак = ', sign, ' СС на вход = ', curr_base, 'вещественная часть = ', num_part_real, ' результат работы калькулятора = ', total_result); //тест
+
+        sign := '0';
+        flag_base := False;
+        flag_for_char := False;
+        curr_base := 0;
+        curr_digit := 0;
+        num := 0;
+        num_part_real := 0;
+        cntr_real_part := 0;
+        intenal_sign := '+';
+        count_prog_iteration := count_prog_iteration + 1;
+        flag_for_comments := False;
+
+    end;
+
+    if total_result < 0 then begin
+        flag_for_total_result := False;
+        total_result := total_result * (-1);
+    end
+        else flag_for_total_result := True;
+
+    writeln(total_result);
+
+    {пошёл вывод}
+    for i := 2 to ParamCount do begin
+        val(ParamStr(i), base, code);
+        write(base);
+        space_bar(base); //добавляет пробелы в вывод
+        if flag_for_total_result = False then
+            write('-');
+        digits_for_e := e_count_digit(base, epsilon); //подсчёт количества цифр для нужной нам точности
+        output_with_conversion(digits_for_e, base, total_result);
+        writeln;
+        break;
+    end;
+
+end.
